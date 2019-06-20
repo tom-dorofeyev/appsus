@@ -1,0 +1,22 @@
+
+
+.email-preview-container{
+    background-color:lightgoldenrodyellow;
+}
+
+.email-preview-container .star {
+    visibility:hidden;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.email-preview-container .star:before {
+   content: "\2605";
+   position: absolute;
+   visibility:visible;
+}
+
+.email-preview-container .star:checked:before {
+   content: "\2606";
+   position: absolute;
+}

@@ -1,0 +1,8 @@
+
+@import url('email-preview.css');
+
+/* helpers */
+
+.flex{
+    display:flex;
+}

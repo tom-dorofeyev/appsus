@@ -12,6 +12,9 @@ export default{
             </email-preview>
         </section>
     `,
+    methods:{
+        
+    },
     components:{
         emailPreview,
     }

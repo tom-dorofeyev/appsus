@@ -61,8 +61,15 @@ function query(){
     return Promise.resolve(emails);
 }
 
+function getEmailById(id){
+    return query().then(books=>{
+        return books.find(currBook=>currBook === id);
+    })
+}
+
 export default {
-    query
+    query,
+    getEmailById
 }
 
 
