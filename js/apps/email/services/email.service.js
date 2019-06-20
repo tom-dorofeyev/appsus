@@ -14,6 +14,7 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -30,6 +31,7 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -46,12 +48,15 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
         }]
     }
 ]
+
+changeEmail(0,'title', 'we love sawsan');
 
 function query(){
     let emails = emailsDB
@@ -64,9 +69,14 @@ function getEmailById(id){
     })
 }
 
+function changeEmail(index, key, newValue){
+    query().then(emails=>emails[index][key] = newValue)
+}
+
 export default {
     query,
-    getEmailById
+    getEmailById,
+    changeEmail
 }
 
 

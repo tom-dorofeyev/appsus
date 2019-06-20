@@ -1,7 +1,5 @@
 'use strict'
 
-import emailService from '../services/email.service.js'
-
 export default {
     props: ['email'],
     template: `
@@ -16,21 +14,13 @@ export default {
     `,
     data() {
         return {
-            checkedEmails: [],
+
         }
     },
     methods: {
         updateChecked(ev) {
-            const isChecked = ev.target.checked;
             const emailId = ev.target.name;
-            if(isChecked){
-                emailService.getEmailById(emailId)
-                    .then(email=>{
-                        console.log(email)
-                        this.checkedEmails.push(email)})
-            }
-            console.log('isChecked', ev.target.checked)
-            console.log('checked', ev.target.name)
+            this.$emit('update-marked', emailId)
         }
     },
 }
