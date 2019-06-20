@@ -6,6 +6,7 @@ export default {
     template: `
     <section class="email-app">
         <router-link to="/">go Home</router-link>
+        <router-link to="/email/details">go to email details</router-link>
 
         <email-list :emails="emailsForDisplay"></email-list>
 

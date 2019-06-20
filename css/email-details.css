@@ -1,0 +1,9 @@
+.user-img{
+    float: left;
+    width: 5em;
+    border-radius: 50%;
+}
+
+.email-id{
+    float: right;
+}
