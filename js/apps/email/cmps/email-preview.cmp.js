@@ -4,9 +4,9 @@ export default {
     props: ['email'],
     template: `
     <section class="email-preview-container flex">
-        <input type="checkbox" :name="email.id" @click="updateChecked">
+        <input class="mark" type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
-        <router-link :to="'email/details/' + email.id">
+        <router-link class="preview-link" :to="'email/details/' + email.id">
             <div class="preview-text">
                 <div class="from">{{email.from}}</div>
                 <div class="title">{{email.title}}</div>
