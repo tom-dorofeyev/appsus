@@ -25,7 +25,9 @@ export default {
             const emailId = ev.target.name;
             if(isChecked){
                 emailService.getEmailById(emailId)
-                    .then(email=>this.checkedEmails.push(email))
+                    .then(email=>{
+                        console.log(email)
+                        this.checkedEmails.push(email)})
             }
             console.log('isChecked', ev.target.checked)
             console.log('checked', ev.target.name)

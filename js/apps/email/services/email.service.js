@@ -14,7 +14,6 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
-            isMultSelected: false
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -31,7 +30,6 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
-            isMultSelected: false
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -48,7 +46,6 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
-            isMultSelected: false
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -62,8 +59,8 @@ function query(){
 }
 
 function getEmailById(id){
-    return query().then(books=>{
-        return books.find(currBook=>currBook === id);
+    return query().then(emails=>{
+        return emails.find(email=>email.id === id);
     })
 }
 
