@@ -6,10 +6,12 @@ export default {
     <section class="email-preview-container flex">
         <input type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
-        <div class="preview-text">
-            <div class="from">{{email.from}}</div>
-            <div class="title">{{email.title}}</div>
-        </div>
+        <router-link :to="'email/details/' + email.id">
+            <div class="preview-text">
+                <div class="from">{{email.from}}</div>
+                <div class="title">{{email.title}}</div>
+            </div>
+        </router-link>
     </section>
     `,
     data() {

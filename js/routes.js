@@ -7,7 +7,7 @@ import bookApp from './apps/book/cmps/book-app.cmp.js';
 export default [
     { path: '/', component: homepageCmp },
     { path: '/email', component: emailApp },
-    { path: '/email/details', component: emailDetails },
+    { path: '/email/details/:emailId', component: emailDetails },
     { path: '/keep', component: keepApp },
     { path: '/book', component: bookApp },
 ]

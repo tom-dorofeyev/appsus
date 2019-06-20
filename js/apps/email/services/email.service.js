@@ -1,6 +1,9 @@
 'use strict'
 
 import utilService from '../../../services/utils.service.js'
+import storageService from '../../../services/storage.service.js'
+
+const EMAILS_KEY = 'emails'
 
 let emailsDB = [
     {
@@ -60,7 +63,11 @@ let emailsDB = [
 changeEmail(0,'title', 'we love sawsan');
 
 function query(){
-    let emails = emailsDB
+    let emails = storageService.load(EMAILS_KEY);
+    if(!emails){
+        emails = emailsDB;
+        storageService.store(EMAILS_KEY, emails);
+    }
     return Promise.resolve(emails);
 }
 

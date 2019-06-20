@@ -5,8 +5,8 @@ import emailService from '../services/email.service.js'
 export default {
     template: `
         <section class="list-container">
-        <h2>Title: {{currentEmail.title}} </h2>
-        <p>{{currentEmail.id}}</p>
+        <router-link to="/email">BACK</router-link>
+        <h2>Title: {{currentEmail.title}}</h2>
         <hr>
         <img v-if="currentEmail.images" class="user-img" v-bind:src="currentEmail.images[0].profile" /> 
         <p>From: <a :href="'mailto:' + currentEmail.from">{{currentEmail.from}}</a></p>
@@ -27,9 +27,8 @@ export default {
     components: {
     },
     created() {
-        emailService.query()
-            .then(res => this.currentEmail = res[0])
-            .then(() => console.log(this.currentEmail.images[0]));
+        const emailId = this.$route.params.emailId;
+        emailService.getEmailById(emailId).then(email=>this.currentEmail = email);
     },
 
 }
