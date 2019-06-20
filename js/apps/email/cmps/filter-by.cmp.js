@@ -6,7 +6,7 @@ export default {
     <section class="filter">
         <input type="text" v-model="filterBy.title" @input="listForDisplay">
         <ul>
-            <li v-for="listItem in emailList">{{listItem.title}}</li>
+            <li v-for="listItem in emailList" @click="emitFilter">{{listItem.title}}</li>
         </ul>
     </section>
     `,

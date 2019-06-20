@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         setFilter(filter) {
-            // console.log('email App got the filter', filter);
+            console.log('email App got the filter', filter);
             // this.filter = filter
         }
     },

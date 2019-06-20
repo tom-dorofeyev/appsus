@@ -2,8 +2,17 @@
 
 .filter ul{
     padding: 0;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 206px;
     position: relative;
     top: -17px;
+}
+
+.filter li{
+    border: 1px solid lightgray;
+}
+
+.filter li:hover{
+    cursor: pointer;
+    background-color:lightgray;
 }
