@@ -8,7 +8,7 @@ export default {
     <section class="email-app">
         <router-link to="/">go Home</router-link>
         <router-link to="/email/details">go to email details</router-link>
-        <filter-by @set-filter="setFilter"></filter-by>
+        <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
         <email-list :emails="emailsForDisplay"></email-list>
 
     </section>
@@ -26,11 +26,16 @@ export default {
     computed: {
         emailsForDisplay() {
             if (!this.filter) return this.emails;
+            else{
+                return this.emails.filter(email=>{
+                    return email.title.includes(this.filter.title);
+                })
+            }
         }
     },
     methods: {
         setFilter(filter) {
-            console.log('email App got the filter', filter);
+            // console.log('email App got the filter', filter);
             // this.filter = filter
         }
     },
