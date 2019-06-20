@@ -7,7 +7,7 @@ let emailsDB = [
         id: utilService.makeId(),
         title: 'Hello there',
         from: 'baba@savta.com',
-        
+
         to: 'mymail@savta.net',
         timestamp: 'Thu Jun 20 2019 11:48:49',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quisquam consequuntur placeat, possimus animi unde aliquid natus assumenda, quia non iste magnam consectetur sequi beatae? Necessitatibus eum impedit accusantium. Sunt!',
@@ -15,7 +15,7 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
-            isMultSelected: false
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -32,6 +32,7 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
@@ -48,12 +49,15 @@ let emailsDB = [
             isStar: false,
             isTrash: false,
             isRead: false,
+            isMultSelected: false,
         },
         images:[{
             profile: 'img/email-imgs/generic-profile.png'
         }]
     }
 ]
+
+changeEmail(0,'title', 'we love sawsan');
 
 function query(){
     let emails = emailsDB
@@ -66,9 +70,14 @@ function getEmailById(id){
     })
 }
 
+function changeEmail(index, key, newValue){
+    query().then(emails=>emails[index][key] = newValue)
+}
+
 export default {
     query,
-    getEmailById
+    getEmailById,
+    changeEmail
 }
 
 
