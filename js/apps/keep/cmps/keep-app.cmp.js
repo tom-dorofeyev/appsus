@@ -1,8 +1,8 @@
 
 export default{
     template:`
-    <section class="keep-app">
-        hello im an notes keep app
+    <section class="homepage-container">
+        <h1> Miss Keep </h1>
         <router-link to="/">Go Home</router-link>
     </section>
     `

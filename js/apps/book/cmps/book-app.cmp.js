@@ -1,9 +1,9 @@
 
 export default{
     template:`
-    <section class="book-app">
-        hello im an book app
-        <router-link to="/">go HOme</router-link>
+    <section class="homepage-container">
+    <h1> Miss Books </h1>
+        <router-link to="/">Go Home</router-link>
     </section>
     `
 }

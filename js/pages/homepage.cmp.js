@@ -1,10 +1,11 @@
 
 export default{
     template:`
-    <section>hello
-        <router-link to="/email">go to email app</router-link>
-        <router-link to="/keep">go to keep app</router-link>
-        <router-link to="/book">go to book app</router-link>
+    <section class="homepage-container">
+        <h1>Homepage</h1>
+        <router-link to="/email">Email app</router-link> |
+        <router-link to="/keep">Miss Keep app</router-link> |
+        <router-link to="/book">Miss Book app</router-link>
     </section>
     `
 }
