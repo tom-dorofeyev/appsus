@@ -34,3 +34,12 @@
 .email-preview-container .preview-link{
     width:100%;
 }
+
+.email-preview-container .actions span{
+    position: relative;
+    top: 8px;
+}
+
+.email-preview-container .actions span:hover{
+    cursor: pointer;
+}

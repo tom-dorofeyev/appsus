@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="filter flex">
         <div class="search-box">
-            <input type="text" v-model="filterTxt" @input="autoCompleteForDisplay">
+            <input type="text" @keyup.enter="listByText" v-model="filterTxt" @input="autoCompleteForDisplay">
             <ul>
                 <li v-for="listItem in emailList" @click="listByText">{{listItem.title}}</li>
             </ul>
