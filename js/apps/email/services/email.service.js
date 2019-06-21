@@ -78,6 +78,8 @@ function getFilteredEmails(filterWord){
         return query().then(emails=>emails.filter(email=>email.type.isRead));
     } else if(filterWord ==='unread'){
         return query().then(emails=>emails.filter(email=>!email.type.isRead));
+    } else{
+        return query().then(emails=>emails.filter(email=>email.title.includes(filterWord)));
     }
 }
 
