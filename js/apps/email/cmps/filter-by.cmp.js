@@ -3,36 +3,43 @@
 export default {
     props: ['emails'],
     template: `
-    <section class="filter">
-        <input type="text" v-model="filterBy.title" @input="listForDisplay">
-        <ul>
-            <li v-for="listItem in emailList" @click="emitFilter">{{listItem.title}}</li>
-        </ul>
+    <section class="filter flex">
+        <div class="search-box">
+            <input type="text" v-model="filterTxt" @input="autoCompleteForDisplay">
+            <ul>
+                <li v-for="listItem in emailList" @click="emitFilter">{{listItem.title}}</li>
+            </ul>
+        </div>
+        <select @input="listForDisplay" class="filter-options">
+                <option v-for="filterWord in filterOptions" :value="filterWord">
+                    {{filterWord}}
+                </option>
+        </select>
     </section>
     `,
-    data(){
-        return{
-            filterBy:{
-                title: '',
-                isRead: null,
-                timestamp:null
-            },
+    data() {
+        return {
+            filterTxt: '',
             emailList: [],
+            filterOptions: ['all', 'read', 'unread'],
         }
     },
-    computed:{
+    computed: {
 
     },
     methods: {
         emitFilter() {
-            this.$emit('set-filter', this.filterBy);
+            this.$emit('set-filter', this.filterTxt);
         },
-        listForDisplay(){
-            if(this.filterBy.title){
-                this.emailList = this.emails.filter(email=>{
-                    return email.title.toUpperCase().includes(this.filterBy.title.toUpperCase())
+        autoCompleteForDisplay() {
+            if (this.filterTxt) {
+                this.emailList = this.emails.filter(email => {
+                    return email.title.toUpperCase().includes(this.filterTxt.toUpperCase())
                 })
             } else this.emailList = [];
+        },
+        listForDisplay(ev) {
+            this.$emit('set-filter', ev.target.value);
         }
     }
 }

@@ -16,3 +16,9 @@
     cursor: pointer;
     background-color:lightgray;
 }
+
+.filter-options{
+    position: relative;
+    height: 23px;
+    left: -30px;
+}

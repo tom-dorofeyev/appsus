@@ -17,7 +17,7 @@ let emailsDB = [
         type:{
             isStar: false,
             isTrash: false,
-            isRead: false,
+            isRead: true,
             isMultSelected: false,
         },
         images:[{
@@ -71,6 +71,16 @@ function query(){
     return Promise.resolve(emails);
 }
 
+function getFilteredEmails(filterWord){
+    if(filterWord === 'all'){
+        return query();
+    } else if(filterWord === 'read'){
+        return query().then(emails=>emails.filter(email=>email.type.isRead));
+    } else if(filterWord ==='unread'){
+        return query().then(emails=>emails.filter(email=>!email.type.isRead));
+    }
+}
+
 function getEmailById(id){
     return query().then(emails=>{
         return emails.find(email=>email.id === id);
@@ -84,7 +94,7 @@ function changeEmail(index, key, newValue){
 export default {
     query,
     getEmailById,
-    changeEmail
+    getFilteredEmails,
 }
 
 

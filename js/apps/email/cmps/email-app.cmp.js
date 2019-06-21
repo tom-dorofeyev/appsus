@@ -25,18 +25,12 @@ export default {
     },
     computed: {
         emailsForDisplay() {
-            if (!this.filter) return this.emails;
-            else{
-                return this.emails.filter(email=>{
-                    return email.title.includes(this.filter.title);
-                })
-            }
+            return this.emails
         }
     },
     methods: {
         setFilter(filter) {
-            console.log('email App got the filter', filter);
-            // this.filter = filter
+            emailService.getFilteredEmails(filter).then(emails=>this.emails=emails)
         }
     },
     components: {
