@@ -12,8 +12,7 @@ export default {
             <input class="compose-inputs" v-model="newEmail.to" placeholder="Recipients" type="text">
             <input class="compose-inputs" v-model="newEmail.title"  placeholder="Subject" type="text">
             <textarea class="compose-input-text" v-model="newEmail.text" placeholder="Body"> </textarea>
-            <button @click="sendMail">Send</button>
-            <router-link to="/email">Back</router-link>
+            <router-link to="/email"><button @click="sendMail">Send</button></router-link>
         </section>
         `,
     data() {
