@@ -45,9 +45,8 @@ export default {
     },
     methods: {
         sendMail(){
-            console.log(this.newEmail);
             emailService.add(this.newEmail)
-            console.log(emailService.emailsDB);
+            emailService.updateEmailsDB()
         },
     }
 }

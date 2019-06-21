@@ -94,16 +94,26 @@ function changeEmail(index, key, newValue) {
 
 function add(newEmail) {
     emailsDB.unshift(newEmail)
-    let emails = emailsDB
-    storageService.store(EMAILS_KEY, emails)
 }
 
-    export default {
-        query,
-        getEmailById,
-        getFilteredEmails,
-        add,
-        emailsDB,
-    }
+function moveToTrash(emailId){
+    query().then(emails=>emails.findIndex(email=>email.id === emailId))
+                .then(emailIndex=>{
+                    emailsDB[emailIndex].type.isTrash = true;
+                    console.log(emailsDB[emailIndex])
+                    updateEmailsDB();
+                })
+}
 
+function updateEmailsDB(){
+    storageService.store(EMAILS_KEY, emailsDB);
+}
 
+export default {
+    query,
+    getEmailById,
+    getFilteredEmails,
+    moveToTrash,
+    add,
+    updateEmailsDB
+}

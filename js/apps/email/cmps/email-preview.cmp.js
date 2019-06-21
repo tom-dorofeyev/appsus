@@ -1,5 +1,7 @@
 'use strict'
 
+import emailService from '../services/email.service.js'
+
 export default {
     props: ['email'],
     template: `
@@ -12,6 +14,9 @@ export default {
                 <div class="title">{{email.title}}</div>
             </div>
         </router-link>
+            <div class="actions">
+                <span @click="deleteEmail">🗑</span>
+            </div>
     </section>
     `,
     data() {
@@ -23,6 +28,10 @@ export default {
         updateChecked(ev) {
             const emailId = ev.target.name;
             this.$emit('update-marked', emailId)
+        },
+        deleteEmail(){
+            emailService.moveToTrash(this.email.id)
+            console.log('hi there')
         }
     },
 }
