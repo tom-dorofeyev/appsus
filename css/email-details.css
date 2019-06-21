@@ -7,3 +7,9 @@
 .email-id{
     float: right;
 }
+
+.star-checker{
+    right: 0;
+    position: absolute;
+    text-align: center;
+}

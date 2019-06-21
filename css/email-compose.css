@@ -1,0 +1,23 @@
+.compose-container{
+    display: inline;
+    margin: 0 auto;
+}
+
+.compose-header{
+    background-color: black;
+    color: white;
+    height: 10vh;
+}
+
+.compose-title{
+    margin: 0 auto;
+}
+
+.compose-inputs{
+    width: 99vw;
+}
+
+.compose-input-text{
+    height: 70vh;
+    width: 99vw;
+}

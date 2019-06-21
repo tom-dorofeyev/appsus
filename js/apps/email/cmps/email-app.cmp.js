@@ -7,7 +7,8 @@ export default {
     template: `
     <section class="email-app">
         <router-link to="/">go Home</router-link> | 
-        <router-link to="/email/details">go to Email details</router-link>
+        <router-link to="/email/details">go to Email details</router-link> |
+        <router-link to="/email/new">New Mail</router-link>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
         <email-list :emails="emailsForDisplay"></email-list>
 
