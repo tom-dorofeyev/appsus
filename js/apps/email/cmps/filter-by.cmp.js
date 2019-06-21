@@ -7,10 +7,10 @@ export default {
         <div class="search-box">
             <input type="text" v-model="filterTxt" @input="autoCompleteForDisplay">
             <ul>
-                <li v-for="listItem in emailList" @click="emitFilter">{{listItem.title}}</li>
+                <li v-for="listItem in emailList" @click="listByText">{{listItem.title}}</li>
             </ul>
         </div>
-        <select @input="listForDisplay" class="filter-options">
+        <select @input="listByOption" class="filter-options">
                 <option v-for="filterWord in filterOptions" :value="filterWord">
                     {{filterWord}}
                 </option>
@@ -28,8 +28,8 @@ export default {
 
     },
     methods: {
-        emitFilter() {
-            this.$emit('set-filter', this.filterTxt);
+        listByText(ev) {
+            this.$emit('set-filter', ev.target.innerText);
         },
         autoCompleteForDisplay() {
             if (this.filterTxt) {
@@ -38,7 +38,7 @@ export default {
                 })
             } else this.emailList = [];
         },
-        listForDisplay(ev) {
+        listByOption(ev) {
             this.$emit('set-filter', ev.target.value);
         }
     }
