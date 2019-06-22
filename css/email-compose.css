@@ -1,12 +1,17 @@
 .compose-container{
-    display: inline;
+    position: absolute;
     margin: 0 auto;
+    border: 2px solid black;
+    right: 2px;
+    bottom: 0;
+    width: 30em;
 }
 
 .compose-header{
     background-color: black;
     color: white;
     height: 10vh;
+    width: 100%;
 }
 
 .compose-title{
@@ -14,10 +19,10 @@
 }
 
 .compose-inputs{
-    width: 100%;
+    width: 99%;
 }
 
 .compose-input-text{
-    height: 70vh;
-    width: 100%;
+    height: 25em;
+    width: 99%;
 }
