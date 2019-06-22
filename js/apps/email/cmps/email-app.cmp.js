@@ -2,6 +2,7 @@
 import emailService from '../services/email.service.js'
 import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
+import emailStatus from './email-status.cmp.js'
 
 export default {
     template: `
@@ -43,6 +44,7 @@ export default {
     },
     components: {
         emailList,
-        filterBy
+        filterBy,
+        emailStatus,
     }
 }

@@ -1,16 +1,3 @@
 .homepage-container{
     text-align: center;
 }
-
-.apps-icon{
-    position: absolute;
-    padding: 10px;
-    top: 0;
-    right: 0;
-    width: 5em;
-    border-radius: 50%;
-}
-
-.apps-icon:hover {
-    cursor: pointer;
-}

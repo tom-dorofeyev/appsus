@@ -1,5 +1,5 @@
 .icon-img{
-    width: 5em;
+    width: 2em;
     border-radius: 50%;
 }
 
@@ -7,8 +7,21 @@
     border: 2px solid black;
     display: flex;
     max-width: 26vw;
-    padding: 20px;
+    padding: 5px;
     position: absolute;
-    top: 6em;
+    top: 0em;
+    right: 3em;
+}
+
+.apps-icon{
+    position: absolute;
+    padding: 10px;
+    top: 0;
     right: 0;
+    width: 2em;
+    border-radius: 50%;
+}
+
+.apps-icon:hover {
+    cursor: pointer;
 }
