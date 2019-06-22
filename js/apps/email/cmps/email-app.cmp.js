@@ -10,7 +10,7 @@ export default {
         <router-link to="/email/details">go to Email details</router-link> |
         <router-link to="/email/new">New Mail</router-link>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <email-list :emails="emailsForDisplay"></email-list>
+        <email-list :emails="emails"></email-list>
     </section>
     `,
 
@@ -29,9 +29,7 @@ export default {
             }))
     },
     computed: {
-        emailsForDisplay() {
-            return this.emails;
-        }
+
     },
     methods: {
         setFilter(filter) {
@@ -39,7 +37,7 @@ export default {
         },
         setFolder() {
             emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
-        }
+        },
     },
     components: {
         emailList,

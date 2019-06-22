@@ -104,21 +104,23 @@ function add(newEmail) {
 
 function moveToTrash(emailId){
     getEmailIndex(emailId).then(index=>{
+                    let emails = storageService.load(EMAILS_KEY);
                     emailsDB[index].type.isTrash = true;
-                    console.log(emailsDB[index])
-                    updateEmailsDB();
+                    updateEmailsDB(emails);
                 })
 }
 
 function markAsReadOrUnread(emailId, isRead){
     getEmailIndex(emailId).then(index=>{
-        emailsDB[index].type.isRead = isRead;
-        updateEmailsDB();
+        query().then(emails => {
+            emails[index].type.isRead = isRead;
+            updateEmailsDB(emails);
+        })
     })
 }
 
-function updateEmailsDB(){
-    storageService.store(EMAILS_KEY, emailsDB);
+function updateEmailsDB(emails){
+    storageService.store(EMAILS_KEY, emails);
 }
 
 export default {
