@@ -32,10 +32,7 @@ export default {
     },
     created() {
         emailService.query()
-            .then(res => this.emails = res.map((email) => {
-                email.visible = true;
-                return email;
-            })),
+            .then(emails => this.emails = emails);
         eventBus.$on(UPDATE_EMAILS, emails=>{
             this.emails = emails
         })
