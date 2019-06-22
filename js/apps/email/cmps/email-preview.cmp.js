@@ -1,11 +1,12 @@
 'use strict'
 
 import emailService from '../services/email.service.js'
+import eventBus from '../../../event-bus.js'
 
 export default {
     props: ['email'],
     template: `
-    <section class="email-preview-container flex">
+    <section class="email-preview-container flex" @click="emitChanges">
         <input class="mark" type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
         <router-link class="preview-link" :to="'email/details/' + email.id">
@@ -39,6 +40,11 @@ export default {
         },
         markAsRead(){
             emailService.markAsReadOrUnread(this.email.id, true);
+        },
+        emitChanges(){
+            emailService.query().then(emails=>{
+                eventBus.$emit('update-emails', emails);
+            })
         }
     },
 }

@@ -4,6 +4,7 @@ import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
+import eventBus, {UPDATE_EMAILS} from '../../../event-bus.js'
 
 export default {
     template: `
@@ -30,7 +31,10 @@ export default {
             .then(res => this.emails = res.map((email) => {
                 email.visible = true;
                 return email;
-            }))
+            })),
+        eventBus.$on(UPDATE_EMAILS, emails=>{
+            this.emails = emails
+        })
     },
     computed: {
 
