@@ -4,6 +4,14 @@
     background-color:lightgoldenrodyellow;
 }
 
+.email-preview-container .actions i{
+    margin-left:10px;
+}
+
+.email-preview-container .actions i:hover{
+    cursor: pointer;
+}
+
 .email-preview-container .star {
     visibility:hidden;
     font-size:20px;

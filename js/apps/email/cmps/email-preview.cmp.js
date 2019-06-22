@@ -15,7 +15,7 @@ export default {
             </div>
         </router-link>
             <div class="actions flex">
-                <span @click="deleteEmail">🗑</span>
+                <i @click="deleteEmail" class="fas fa-trash-alt"></i>
                 <i class="fas fa-envelope-open-text" @click="markAsUnread" v-if="email.type.isRead"></i>
                 <i class="fas fa-envelope" @click="markAsRead" v-if="!email.type.isRead"></i>
             </div>
