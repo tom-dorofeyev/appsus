@@ -16,14 +16,19 @@ export default {
     methods:{
         emitInbox(){
             emailService.query().then(emails => {
+                emails = emails.filter(email => !email.type.isTrash)
                 eventBus.$emit('update-emails', emails);
             })
         },
         emitStarred(){
-            console.log('emiting starred')
+            emailService.getEmailByType('isStar').then(emails => {
+                eventBus.$emit('update-emails', emails)
+            })
         },
         emitTrash(){
-            console.log('emiting trash')
+            emailService.getEmailByType('isTrash').then(emails => {
+                eventBus.$emit('update-emails', emails)
+            })
         }
     }
 }

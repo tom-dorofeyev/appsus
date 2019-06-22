@@ -15,8 +15,10 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <side-bar></side-bar>
-        <email-list :emails="emails"></email-list>
+        <section class="list-sidebar-container">
+            <side-bar></side-bar>
+            <email-list :emails="emails"></email-list>
+        </section>
     </section>
     `,
 

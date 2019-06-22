@@ -15,7 +15,7 @@ let emailsDB = [
         timestamp: 'Thu Jun 20 2019 11:48:49',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quisquam consequuntur placeat, possimus animi unde aliquid natus assumenda, quia non iste magnam consectetur sequi beatae? Necessitatibus eum impedit accusantium. Sunt!',
         type: {
-            isStar: false,
+            isStar: true,
             isTrash: false,
             isRead: true,
             isMultSelected: false,
@@ -94,6 +94,12 @@ function getEmailIndex(id) {
     })
 }
 
+function getEmailByType(keyName){
+    return query().then(emails =>{
+        return emails.filter(email => email.type[keyName])
+    })
+}
+
 function add(newEmail) {
     return query().then(emails => {
         emails.unshift(newEmail)
@@ -105,7 +111,7 @@ function add(newEmail) {
 function moveToTrash(emailId) {
     getEmailIndex(emailId).then(index => {
         let emails = storageService.load(EMAILS_KEY);
-        emailsDB[index].type.isTrash = true;
+        emails[index].type.isTrash = true;
         updateEmailsDB(emails);
     })
 }
@@ -130,5 +136,6 @@ export default {
     moveToTrash,
     add,
     updateEmailsDB,
-    markAsReadOrUnread
+    markAsReadOrUnread,
+    getEmailByType
 }
