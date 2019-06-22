@@ -1,0 +1,14 @@
+.icon-img{
+    width: 5em;
+    border-radius: 50%;
+}
+
+.cute-nav-container{
+    border: 2px solid black;
+    display: flex;
+    max-width: 26vw;
+    padding: 20px;
+    position: absolute;
+    top: 6em;
+    right: 0;
+}

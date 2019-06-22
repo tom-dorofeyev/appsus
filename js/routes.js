@@ -1,4 +1,5 @@
 import homepageCmp from './pages/homepage.cmp.js';
+import appNav from './pages/app-nav.cmp.js';
 import emailApp from './apps/email/cmps/email-app.cmp.js';
 import emailDetails from './apps/email/cmps/email-details.cmp.js';
 import emailCompose from './apps/email/cmps/email-compose.cmp.js';
@@ -7,6 +8,7 @@ import bookApp from './apps/book/cmps/book-app.cmp.js';
 
 export default [
     { path: '/', component: homepageCmp },
+    { path: '/nav', component: appNav },
     { path: '/email', component: emailApp },
     { path: '/email/new', component: emailCompose },
     { path: '/email/details/:emailId', component: emailDetails },
