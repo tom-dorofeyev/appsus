@@ -14,10 +14,10 @@
 }
 
 .compose-inputs{
-    width: 99vw;
+    width: 100%;
 }
 
 .compose-input-text{
     height: 70vh;
-    width: 99vw;
+    width: 100%;
 }
