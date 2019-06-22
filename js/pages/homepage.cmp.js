@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="homepage-container">
         <h1>Homepage</h1>
-        <img @click="toggleNav" class="apps-icon" src="/img/apps.png">
+        <img @click="toggleNav" class="apps-icon" src="img/apps.png">
         <app-nav v-if="isNavOpen"></app-nav>
         <router-link to="/email">Email app</router-link> |
         <router-link to="/keep">Miss Keep app</router-link> |
