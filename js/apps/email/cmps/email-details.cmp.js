@@ -8,9 +8,9 @@ export default {
             <router-link to="/email">Back</router-link>
             <h2>Title: {{currentEmail.title}}</h2>
             <section class="star-checker">
-            <p v-if="currentEmail.type">⭐{{currentEmail.type.isStar}}</p>
-            <p v-if="currentEmail.type">🗑{{currentEmail.type.isTrash}}</p>
-            <p v-if="currentEmail.type">✉{{currentEmail.type.isRead}}</p>
+                <p v-if="currentEmail.type">⭐{{currentEmail.type.isStar}}</p>
+                <p v-if="currentEmail.type">🗑{{currentEmail.type.isTrash}}</p>
+                <p v-if="currentEmail.type">✉{{currentEmail.type.isRead}}</p>
             </section>
             <hr>
             <img v-if="currentEmail.images" class="user-img" v-bind:src="currentEmail.images[0].profile" /> 
@@ -27,7 +27,7 @@ export default {
         `,
     data() {
         return {
-            currentEmail: []
+            currentEmail: {},
         }
     },
     components: {

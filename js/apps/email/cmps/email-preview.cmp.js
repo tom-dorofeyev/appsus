@@ -14,8 +14,10 @@ export default {
                 <div class="title">{{email.title}}</div>
             </div>
         </router-link>
-            <div class="actions">
+            <div class="actions flex">
                 <span @click="deleteEmail">🗑</span>
+                <i class="fas fa-envelope-open-text" @click="markAsUnread" v-if="email.type.isRead"></i>
+                <i class="fas fa-envelope" @click="markAsRead" v-if="!email.type.isRead"></i>
             </div>
     </section>
     `,
@@ -31,7 +33,12 @@ export default {
         },
         deleteEmail(){
             emailService.moveToTrash(this.email.id)
-            console.log('hi there')
+        },
+        markAsUnread(){
+            console.log('marked as unread')
+        },
+        markAsRead(){
+            console.log('marked as read')
         }
     },
 }

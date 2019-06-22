@@ -11,9 +11,10 @@ export default {
         <router-link to="/email/new">New Mail</router-link>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
         <email-list :emails="emailsForDisplay"></email-list>
-
     </section>
     `,
+
+
     data() {
         return {
             filter: null,
@@ -22,16 +23,22 @@ export default {
     },
     created() {
         emailService.query()
-            .then(res => this.emails = res);
+            .then(res => this.emails = res.map((email) => {
+                email.visible = true;
+                return email;
+            }))
     },
     computed: {
         emailsForDisplay() {
-            return this.emails
+            return this.emails;
         }
     },
     methods: {
         setFilter(filter) {
-            emailService.getFilteredEmails(filter).then(emails=>this.emails=emails)
+            emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
+        },
+        setFolder() {
+            emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
         }
     },
     components: {
