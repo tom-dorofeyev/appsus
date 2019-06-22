@@ -35,10 +35,10 @@ export default {
             emailService.moveToTrash(this.email.id)
         },
         markAsUnread(){
-            console.log('marked as unread')
+            emailService.markAsReadOrUnread(this.email.id, false);
         },
         markAsRead(){
-            console.log('marked as read')
+            emailService.markAsReadOrUnread(this.email.id, true);
         }
     },
 }

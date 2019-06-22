@@ -88,6 +88,12 @@ function getEmailById(id) {
     })
 }
 
+function getEmailIndex(id){
+    return query().then(emails=>{
+        return emails.findIndex(email=>email.id ===id);
+    })
+}
+
 function changeEmail(index, key, newValue) {
     query().then(emails => emails[index][key] = newValue)
 }
@@ -97,12 +103,18 @@ function add(newEmail) {
 }
 
 function moveToTrash(emailId){
-    query().then(emails=>emails.findIndex(email=>email.id === emailId))
-                .then(emailIndex=>{
-                    emailsDB[emailIndex].type.isTrash = true;
-                    console.log(emailsDB[emailIndex])
+    getEmailIndex(emailId).then(index=>{
+                    emailsDB[index].type.isTrash = true;
+                    console.log(emailsDB[index])
                     updateEmailsDB();
                 })
+}
+
+function markAsReadOrUnread(emailId, isRead){
+    getEmailIndex(emailId).then(index=>{
+        emailsDB[index].type.isRead = isRead;
+        updateEmailsDB();
+    })
 }
 
 function updateEmailsDB(){
@@ -115,5 +127,6 @@ export default {
     getFilteredEmails,
     moveToTrash,
     add,
-    updateEmailsDB
+    updateEmailsDB,
+    markAsReadOrUnread
 }
