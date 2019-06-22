@@ -88,30 +88,30 @@ function getEmailById(id) {
     })
 }
 
-function getEmailIndex(id){
-    return query().then(emails=>{
-        return emails.findIndex(email=>email.id ===id);
+function getEmailIndex(id) {
+    return query().then(emails => {
+        return emails.findIndex(email => email.id === id);
     })
 }
 
-function changeEmail(index, key, newValue) {
-    query().then(emails => emails[index][key] = newValue)
-}
-
 function add(newEmail) {
-    emailsDB.unshift(newEmail)
+    return query().then(emails => {
+        emails.unshift(newEmail)
+        updateEmailsDB(emails);
+        return Promise.resolve(emails)
+    })
 }
 
-function moveToTrash(emailId){
-    getEmailIndex(emailId).then(index=>{
-                    let emails = storageService.load(EMAILS_KEY);
-                    emailsDB[index].type.isTrash = true;
-                    updateEmailsDB(emails);
-                })
+function moveToTrash(emailId) {
+    getEmailIndex(emailId).then(index => {
+        let emails = storageService.load(EMAILS_KEY);
+        emailsDB[index].type.isTrash = true;
+        updateEmailsDB(emails);
+    })
 }
 
-function markAsReadOrUnread(emailId, isRead){
-    getEmailIndex(emailId).then(index=>{
+function markAsReadOrUnread(emailId, isRead) {
+    getEmailIndex(emailId).then(index => {
         query().then(emails => {
             emails[index].type.isRead = isRead;
             updateEmailsDB(emails);
@@ -119,7 +119,7 @@ function markAsReadOrUnread(emailId, isRead){
     })
 }
 
-function updateEmailsDB(emails){
+function updateEmailsDB(emails) {
     storageService.store(EMAILS_KEY, emails);
 }
 

@@ -4,6 +4,7 @@ import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
+import sideBar from './email-sidebar.cmp.js'
 import eventBus, {UPDATE_EMAILS} from '../../../event-bus.js'
 
 export default {
@@ -14,6 +15,7 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
+        <side-bar></side-bar>
         <email-list :emails="emails"></email-list>
     </section>
     `,
@@ -55,5 +57,6 @@ export default {
         filterBy,
         emailStatus,
         emailCompose,
+        sideBar
     }
 }
