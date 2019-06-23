@@ -12,7 +12,7 @@ export default {
                             :email="currEmail"
                             @update-marked="updateMarkedEmails">
             </email-preview>
-            <div>{{checkedEmails}}</div>
+            <!-- <div>{{checkedEmails}}</div> -->
         </section>
     `,
     data() {

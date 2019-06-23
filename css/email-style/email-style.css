@@ -1,0 +1,28 @@
+@import url('email-preview.css');
+@import url('email-details.css');
+@import url('email-status.css');
+@import url('email-compose.css');
+@import url('filterBy.css');
+@import url('side-bar.css');
+
+.email-app{
+    height:100vh;
+}
+
+.main-header{
+    height: 50px;
+}
+
+.list-container{
+    padding-right: 10px;
+}
+
+.list-sidebar-container{
+    display: grid;
+    grid-template-columns: 15% auto;
+    height: 100%;
+}
+
+.main-header button{
+    border-radius: 10px;
+}

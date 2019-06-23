@@ -9,13 +9,17 @@ import eventBus, { UPDATE_EMAILS } from '../../../event-bus.js'
 export default {
     template: `
     <section class="email-app">
-        <router-link to="/">Home</router-link> | 
-        <button @click="toggleNewMail">New Mail</button>
-        <email-compose v-if="isNewMailOpen"></email-compose>
-        <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <div v-bind:status="readStatus"  class="status-bar">
-            <div :style="{width:readPercentage}" class="status-loader" >{{readPercentage}}</div>
+        <header class="main-header flex">
+            <button>
+                <router-link to="/">Home</router-link>
+            </button>
+            <button @click="toggleNewMail" class="compose-btn">New Mail</button>
+            <email-compose v-if="isNewMailOpen"></email-compose>
+            <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
+            <div v-bind:status="readStatus"  class="status-bar">
+                <div :style="{width:readPercentage}" class="status-loader" >{{readPercentage}}</div>
             </div>
+        </header>
             
         <section class="list-sidebar-container">
             <side-bar></side-bar>

@@ -6,7 +6,7 @@ import eventBus from '../../../event-bus.js'
 export default {
     template:`
     <section class="side-bar">
-        <ul>
+        <ul class="flex column">
             <li @click="emitInbox">Inbox</li>
             <li @click="emitStarred">starred</li>
             <li @click="emitTrash">trash</li>

@@ -18,8 +18,7 @@ export default {
     methods: {
 
     },
-    created(){
-        console.log('from status bar created',this.status);
+    created(){ 
         
     }
 }
