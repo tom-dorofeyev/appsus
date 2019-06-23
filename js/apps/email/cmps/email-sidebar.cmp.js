@@ -7,9 +7,18 @@ export default {
     template:`
     <section class="side-bar">
         <ul class="flex column">
-            <li @click="emitInbox">Inbox</li>
-            <li @click="emitStarred">starred</li>
-            <li @click="emitTrash">trash</li>
+            <li @click="emitInbox">
+                <i class="fas fa-inbox"></i>
+                Inbox
+            </li>
+            <li @click="emitStarred">
+                <i class="fas fa-star"></i>
+                starred
+            </li>
+            <li @click="emitTrash">
+                <i class="fas fa-trash-alt"></i>
+                trash
+            </li>
         </ul>
     </section>
     `,

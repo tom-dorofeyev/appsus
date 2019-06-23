@@ -4,6 +4,14 @@
     background-color:lightgoldenrodyellow;
 }
 
+.read{
+    background-color: #F5F7F7;
+}
+
+.not-read{
+    background-color: #FFFFFF;
+}
+
 .email-preview-container .actions i{
     margin: 0 10px;
 }
