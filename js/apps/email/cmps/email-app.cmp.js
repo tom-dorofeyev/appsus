@@ -1,11 +1,10 @@
-
 import emailService from '../services/email.service.js'
 import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
 import sideBar from './email-sidebar.cmp.js'
-import eventBus, {UPDATE_EMAILS} from '../../../event-bus.js'
+import eventBus, { UPDATE_EMAILS } from '../../../event-bus.js'
 
 export default {
     template: `
@@ -14,7 +13,8 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <email-status v-bind:status="readStatus"></email-status>
+        <email-status :status="readStatus"></email-status>
+        {{readPercentage}}
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
@@ -28,13 +28,13 @@ export default {
             isNewMailOpen: false,
             filter: null,
             emails: [],
-            readPercentage:0,
+            readPercentage: 0,
         }
     },
     created() {
         emailService.query()
             .then(emails => this.emails = emails);
-        eventBus.$on(UPDATE_EMAILS, emails=>{
+        eventBus.$on(UPDATE_EMAILS, emails => {
             this.emails = emails
             this.isNewMailOpen = false;
         })
@@ -45,14 +45,13 @@ export default {
         },
         readStatus() {
             emailService.getFilteredEmails('read').then(emails => {
-                this.readPercentage = (emails.length/this.emails.length) * 100 + "%";
-                console.log(this.readPercentage)
+                this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
                 return this.readPercentage
-            }); 
+            });
         },
     },
     methods: {
-        toggleNewMail(){
+        toggleNewMail() {
             this.isNewMailOpen = !this.isNewMailOpen
         },
         setFilter(filter) {
