@@ -15,15 +15,11 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-<<<<<<< HEAD
         <email-status ></email-status>
-        <email-list :emails="emailsForDisplay"></email-list>
-=======
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
         </section>
->>>>>>> 7206a399b57239e39b56530699aabafe483598d7
     </section>
     `,
 
@@ -60,7 +56,7 @@ export default {
         },
         readStatus() {
             emailService.getFilteredEmails('read').then(emails => {
-                this.readPercentage = emails.length/3*100+"%";
+                this.readPercentage = emails.length/this.emails.length*100+"%";
                 console.log(this.readPercentage)
             });
             
