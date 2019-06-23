@@ -13,6 +13,9 @@ export default {
         </ul>
     </section>
     `,
+    created(){
+        this.emitInbox()
+    },
     methods:{
         emitInbox(){
             emailService.query().then(emails => {
