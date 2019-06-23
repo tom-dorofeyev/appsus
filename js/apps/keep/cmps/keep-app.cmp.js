@@ -1,6 +1,7 @@
 import noteList from './note-list.cmp.js'
 import keepService from '../services/keep-service.js'
 import utilService from '../../../services/utils.service.js'
+import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
 
 export default {
     template: `
@@ -34,12 +35,14 @@ export default {
                 youtube:'',
                 audio: '',
                 type: '',
+                isPinned: false,
             }
 
     }
     },
     created() {
-        this.notes = keepService.query()
+        this.notes = keepService.query(),
+        eventBus.$on(UPDATE_NOTES, ()=>this.notes = keepService.query())
     },
     methods: {
         sendNote() {

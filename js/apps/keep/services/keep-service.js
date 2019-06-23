@@ -68,6 +68,13 @@ function deleteNoteByid(id){
     storageService.store(NOTES_KEY, notes);
 }
 
+function pinUnpinNoteById(id){
+    const index = getNoteIndex(id);
+    let notes = query();
+    notes[index].isPinned = !notes[index].isPinned
+    storageService.store(NOTES_KEY, notes);
+}
+
 function getNoteIndex(id) {
     let notes = query()
     return notes.findIndex(notes => notes.id === id);
@@ -83,5 +90,6 @@ export default {
     query,
     add,
     getNoteIndex,
-    deleteNoteByid
+    deleteNoteByid,
+    pinUnpinNoteById
 }

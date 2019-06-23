@@ -2,6 +2,7 @@
 
 import keepService from '../services/keep-service.js'
 import storageService from '../../../services/storage.service.js'
+import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
 
 export default {
     props:['note'],
@@ -10,6 +11,12 @@ export default {
             class="note-container"
             @click="startEditing">
             <button @click.stop="deleteNote">X</button>
+            <button v-if="!note.isPinned" @click.stop="pinUnpin">
+                <i class="fas fa-thumbtack"></i>
+            </button>
+            <button v-if="note.isPinned" @click.stop="pinUnpin">
+                <i class="fas fa-unlink"></i>
+            </button>
         {{note.text}}<br>
         {{note.todos}}<br>
         TYPE: {{note.type}}
@@ -46,7 +53,11 @@ export default {
         },
         deleteNote(){
             keepService.deleteNoteByid(this.note.id);
-            this.note = {}
+            eventBus.$emit(UPDATE_NOTES, this.note);
+        },
+        pinUnpin(){
+            keepService.pinUnpinNoteById(this.note.id);
+            eventBus.$emit(UPDATE_NOTES, this.note);
         }
     },
 
