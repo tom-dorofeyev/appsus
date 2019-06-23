@@ -16,7 +16,6 @@ export default {
         <div v-bind:status="readStatus"  class="status-bar">
             <div :style="{width:readPercentage}" class="status-loader" >{{readPercentage}}</div>
             </div>
-            
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
@@ -39,6 +38,9 @@ export default {
         eventBus.$on(UPDATE_EMAILS, emails => {
             this.emails = emails
             this.isNewMailOpen = false;
+            emailService.getFilteredEmails('read').then(emails => {
+                this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
+            });
         })
     },
     computed: {
@@ -48,7 +50,6 @@ export default {
         readStatus() {
             emailService.getFilteredEmails('read').then(emails => {
                 this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
-                return this.readPercentage
             });
         },
     },

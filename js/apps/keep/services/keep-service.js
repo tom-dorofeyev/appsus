@@ -5,7 +5,8 @@ import storageService from '../../../services/storage.service.js'
 
 const NOTES_KEY = 'notes';
 
-let notesDB = [{
+let notesDB = 
+[{
 
         id: utilService.makeId(),
         title: 'this is a title1',
@@ -14,6 +15,7 @@ let notesDB = [{
         todos:'',
         link:'',
         audio:''
+        
     },
     {
         id: utilService.makeId(),
@@ -53,6 +55,13 @@ function query(){
     return notes
 }
 
+function add(newNote) {
+        notesDB.unshift(newNote)
+        storageService.store(NOTES_KEY, notesDB);
+        return notesDB
+}
+
 export default {
     query,
+    add,
 }
