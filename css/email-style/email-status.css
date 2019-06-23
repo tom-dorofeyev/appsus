@@ -1,12 +1,11 @@
 .status-bar{
 border: 1px solid black;
 text-align: center;
-display: block;
-width: 13%;
+display: flex;
+width: 14.7vw;
 height: 24px;
 margin: 0 auto;
 position: absolute;
-left: 1em;
 top: 21em;
 }
 

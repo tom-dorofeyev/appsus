@@ -11,10 +11,12 @@
 
 .main-header{
     height: 70px;
+    border: 1px solid rgba(87, 83, 83, 0.144);
+    border-style: none none solid none;
 }
 
 .list-container{
-    padding-right: 10px;
+    /* padding-right: 10px; */
 }
 
 .list-sidebar-container{
