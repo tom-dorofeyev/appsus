@@ -6,7 +6,12 @@ export default {
     template: `
     <section class="homepage-container">
         <h1> Miss Keep </h1>
-        <input @change="sendNote" v-model="newNote.text" placeholder="Note Text" type="text">
+        <input @change="sendNote" v-if="newNote.type === 'text'"
+                v-model="newNote.text" placeholder="Whats on your mind..." type="text">
+        <input @change="sendNote" v-if="newNote.type === 'image'"
+                v-model="newNote.image" placeholder="Enter Image URL" type="text">
+        <input @change="sendNote" v-if="newNote.type === 'youtube'"
+                v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
         <select v-model="newNote.type">
                 <option value="text">Text</option>
                 <option value="image">Image</option>
@@ -32,7 +37,7 @@ export default {
             }
 
     }
-},
+    },
     created() {
         this.notes = keepService.query()
     },

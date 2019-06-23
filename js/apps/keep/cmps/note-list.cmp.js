@@ -7,9 +7,6 @@ export default {
             <single-note v-for="currNote in noteList" :key="currNote.id" :note="currNote"></single-note>
     </section>
     `,
-    created(){
-        console.log(this.noteList)
-    },
     components:{
         singleNote,
     }

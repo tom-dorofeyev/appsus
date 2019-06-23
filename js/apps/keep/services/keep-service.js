@@ -62,9 +62,8 @@ function query(){
 }
 
 function getNoteIndex(id) {
-    return query().then(notes => {
-        return notes.findIndex(notes => notes.id === id);
-    })
+    let notes = query()
+    return notes.findIndex(notes => notes.id === id);
 }
 
 function add(newNote) {

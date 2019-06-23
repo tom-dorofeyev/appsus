@@ -6,6 +6,7 @@
     background: lightgreen;
     border: 1px solid black;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .note-img{
