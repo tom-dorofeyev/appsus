@@ -13,8 +13,10 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <email-status :status="readStatus"></email-status>
-        {{readPercentage}}
+        <div v-bind:status="readStatus"  class="status-bar">
+            <div :style="{width:readPercentage}" class="status-loader" >{{readPercentage}}</div>
+            </div>
+        
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>

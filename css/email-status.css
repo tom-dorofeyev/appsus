@@ -2,8 +2,9 @@
 border: 1px solid black;
 text-align: center;
 display: block;
-width: 20%;
+width: 30%;
 height: 1%;
+margin: 0 auto;
 }
 
 .status-loader{
