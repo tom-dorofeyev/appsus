@@ -3,7 +3,7 @@
 export default {
     props: ['emails'],
     template: `
-    <section class="filter flex">
+    <section class="filter-container">
         <div class="search-box">
             <input type="text" @keyup.enter="listByText" v-model="filterTxt" @input="autoCompleteForDisplay">
             <ul>

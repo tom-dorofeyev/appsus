@@ -1,6 +1,4 @@
-
-
-.filter ul{
+.filter ul {
     padding: 0;
     /* background-color: aquamarine; */
     width: 206px;
@@ -8,17 +6,29 @@
     top: -17px;
 }
 
-.filter li{
+.filter li {
     border: 1px solid lightgray;
 }
 
-.filter li:hover{
+.filter li:hover {
     cursor: pointer;
-    background-color:lightgray;
+    background-color: lightgray;
 }
 
-.filter-options{
-    position: relative;
+.filter-options {
     height: 23px;
+    display: flex;
     float: right;
+    /* position: absolute;
+    right: 24.5em;
+    top: 0em; */
+
+}
+
+.search-box {
+    margin: 0 auto;
+}
+
+.filter-container {
+    margin: 0 auto;
 }
