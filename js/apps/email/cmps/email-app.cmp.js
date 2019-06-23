@@ -17,7 +17,7 @@ export default {
         <div v-bind:status="readStatus"  class="status-bar">
             <div :style="{width:readPercentage}" class="status-loader" >{{readPercentage}}</div>
             </div>
-        
+            
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
