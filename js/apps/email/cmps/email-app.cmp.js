@@ -15,7 +15,8 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <email-status ></email-status>
+        <email-status></email-status>
+        <div>{{readPercentage}}</div>
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
@@ -37,6 +38,7 @@ export default {
             .then(emails => this.emails = emails);
         eventBus.$on(UPDATE_EMAILS, emails=>{
             this.emails = emails
+            this.isNewMailOpen = !this.isNewMailOpen
         })
     },
     computed: {
@@ -57,7 +59,7 @@ export default {
         readStatus() {
             emailService.getFilteredEmails('read').then(emails => {
                 this.readPercentage = emails.length/this.emails.length*100+"%";
-                console.log(this.readPercentage)
+                console.log(this.readPercentage,' of Mails in this Inbox are read')
             });
             
         },

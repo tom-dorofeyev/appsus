@@ -26,3 +26,32 @@
     height: 25em;
     width: 99%;
 }
+
+.compose-container-full{
+    position: absolute;
+    margin: 0 auto;
+    border: 2px solid black;
+    bottom: 0;
+    width: 99vw;
+}
+
+.compose-header-full{
+    background-color: black;
+    color: white;
+    height: 10vh;
+    width: 99vw;
+}
+
+.compose-title-full{
+    margin: 0 auto;
+}
+
+.compose-inputs-full{
+    width: 99vw;
+}
+
+.compose-input-text-full{
+    height: 32em;
+    width: 99vw;
+}
+
