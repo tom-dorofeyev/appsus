@@ -7,6 +7,13 @@
 @import url('email-status.css');
 @import url('email-compose.css');
 @import url('filterBy.css');
+@import url('side-bar.css');
+
+
+.list-sidebar-container{
+    display: grid;
+    grid-template-columns: 15% auto;
+}
 
 
 /* helpers */

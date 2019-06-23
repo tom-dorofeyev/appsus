@@ -4,6 +4,8 @@ import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
+import sideBar from './email-sidebar.cmp.js'
+import eventBus, {UPDATE_EMAILS} from '../../../event-bus.js'
 
 export default {
     template: `
@@ -13,8 +15,15 @@ export default {
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
+<<<<<<< HEAD
         <email-status ></email-status>
         <email-list :emails="emailsForDisplay"></email-list>
+=======
+        <section class="list-sidebar-container">
+            <side-bar></side-bar>
+            <email-list :emails="emails"></email-list>
+        </section>
+>>>>>>> 7206a399b57239e39b56530699aabafe483598d7
     </section>
     `,
 
@@ -29,18 +38,15 @@ export default {
     },
     created() {
         emailService.query()
-            .then(res => this.emails = res.map((email) => {
-                email.visible = true;
-                return email;
-            }))
+            .then(emails => this.emails = emails);
+        eventBus.$on(UPDATE_EMAILS, emails=>{
+            this.emails = emails
+        })
     },
     computed: {
         emailsForDisplay() {
             return this.emails;
         },
-        emailsMarkedRead() {
-            return this.emails;
-        }
     },
     methods: {
         toggleNewMail(){
@@ -65,5 +71,6 @@ export default {
         filterBy,
         emailStatus,
         emailCompose,
+        sideBar
     }
 }

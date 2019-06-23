@@ -15,7 +15,7 @@ let emailsDB = [
         timestamp: 'Thu Jun 20 2019 11:48:49',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quisquam consequuntur placeat, possimus animi unde aliquid natus assumenda, quia non iste magnam consectetur sequi beatae? Necessitatibus eum impedit accusantium. Sunt!',
         type: {
-            isStar: false,
+            isStar: true,
             isTrash: false,
             isRead: true,
             isMultSelected: false,
@@ -88,37 +88,45 @@ function getEmailById(id) {
     })
 }
 
-function getEmailIndex(id){
-    return query().then(emails=>{
-        return emails.findIndex(email=>email.id ===id);
+function getEmailIndex(id) {
+    return query().then(emails => {
+        return emails.findIndex(email => email.id === id);
     })
 }
 
-function changeEmail(index, key, newValue) {
-    query().then(emails => emails[index][key] = newValue)
+function getEmailByType(keyName){
+    return query().then(emails =>{
+        return emails.filter(email => email.type[keyName])
+    })
 }
 
 function add(newEmail) {
-    emailsDB.unshift(newEmail)
-}
-
-function moveToTrash(emailId){
-    getEmailIndex(emailId).then(index=>{
-                    emailsDB[index].type.isTrash = true;
-                    console.log(emailsDB[index])
-                    updateEmailsDB();
-                })
-}
-
-function markAsReadOrUnread(emailId, isRead){
-    getEmailIndex(emailId).then(index=>{
-        emailsDB[index].type.isRead = isRead;
-        updateEmailsDB();
+    return query().then(emails => {
+        emails.unshift(newEmail)
+        updateEmailsDB(emails);
+        return Promise.resolve(emails)
     })
 }
 
-function updateEmailsDB(){
-    storageService.store(EMAILS_KEY, emailsDB);
+function moveToTrash(emailId) {
+    getEmailIndex(emailId).then(index => {
+        let emails = storageService.load(EMAILS_KEY);
+        emails[index].type.isTrash = true;
+        updateEmailsDB(emails);
+    })
+}
+
+function markAsReadOrUnread(emailId, isRead) {
+    getEmailIndex(emailId).then(index => {
+        query().then(emails => {
+            emails[index].type.isRead = isRead;
+            updateEmailsDB(emails);
+        })
+    })
+}
+
+function updateEmailsDB(emails) {
+    storageService.store(EMAILS_KEY, emails);
 }
 
 export default {
@@ -128,5 +136,6 @@ export default {
     moveToTrash,
     add,
     updateEmailsDB,
-    markAsReadOrUnread
+    markAsReadOrUnread,
+    getEmailByType
 }

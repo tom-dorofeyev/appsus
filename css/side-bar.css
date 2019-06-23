@@ -1,0 +1,13 @@
+
+
+.side-bar li{
+    cursor: pointer;
+}
+
+.side-bar li:hover{
+    background-color:lightblue;
+}
+
+.side-bar ul{
+    padding-left:0;
+}

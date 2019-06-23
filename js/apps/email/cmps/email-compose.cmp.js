@@ -2,6 +2,7 @@
 
 import emailService from '../services/email.service.js'
 import utilService from '../../../services/utils.service.js'
+import eventBus from '../../../event-bus.js'
 
 export default {
     template: `
@@ -43,9 +44,10 @@ export default {
         emailService.getEmailById(emailId).then(email => this.currentEmail = email);
     },
     methods: {
-        sendMail(){
-            emailService.add(this.newEmail)
-            emailService.updateEmailsDB()
+        sendMail() {
+            emailService.add(this.newEmail).then(emails => {
+                    eventBus.$emit('update-emails', emails);
+            })
         },
     }
 }
