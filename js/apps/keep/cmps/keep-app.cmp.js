@@ -13,18 +13,27 @@ export default {
     data() {
         return {
             notes: [],
-            newNote: {},
-        }
-    },
+            newNote: {
+                id: utilService.makeId(),
+                title: '',
+                text: '',
+                image: '',
+                todos: '',
+                link: '',
+                audio: '',
+            }
+
+    }
+},
     created() {
         this.notes = keepService.query()
     },
     methods: {
         sendNote() {
-            this.resetNewNote()
             this.newNote.id = utilService.makeId()
             keepService.add(this.newNote)
             this.notes = keepService.query()
+            this.resetNewNote()
         },
         resetNewNote() {
             this.newNote = {
