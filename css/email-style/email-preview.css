@@ -10,6 +10,7 @@
 
 .not-read{
     background-color: #FFFFFF;
+    font-weight:bold;
 }
 
 .email-preview-container .actions i{
