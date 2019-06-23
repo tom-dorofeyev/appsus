@@ -1,0 +1,16 @@
+import singleNote from './single-note.cmp.js'
+
+export default {
+    props: ['noteList'],
+    template: `
+    <section class="note-list-container">
+            <single-note v-for="currNote in noteList" :key="currNote.id" :note="currNote"></single-note>
+    </section>
+    `,
+    created(){
+        console.log(this.noteList)
+    },
+    components:{
+        singleNote,
+    }
+}
