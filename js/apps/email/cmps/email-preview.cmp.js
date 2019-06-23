@@ -6,7 +6,9 @@ import eventBus from '../../../event-bus.js'
 export default {
     props: ['email'],
     template: `
-    <section class="email-preview-container flex" @click="emitChanges">
+    <section class="email-preview-container flex"
+             :class="{read : isRead, 'not-read' : !isRead}"
+              @click="emitChanges">
         <input class="mark" type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
         <router-link class="preview-link" :to="'email/details/' + email.id">
@@ -24,7 +26,7 @@ export default {
     `,
     data() {
         return {
-
+            isRead: this.email.type.isRead,
         }
     },
     methods: {

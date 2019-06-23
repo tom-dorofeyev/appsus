@@ -13,4 +13,5 @@ margin: 0 auto;
     height:24px;
     width:20%;
     background-color: lightblue;
+    transition:.6s;
 }

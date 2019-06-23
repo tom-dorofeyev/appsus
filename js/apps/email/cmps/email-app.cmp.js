@@ -1,4 +1,5 @@
 import emailService from '../services/email.service.js'
+import storageService from '../../../services/storage.service.js'
 import emailList from './email-list.cmp.js'
 import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
@@ -44,7 +45,8 @@ export default {
             this.emails = emails
             this.isNewMailOpen = false;
             emailService.getFilteredEmails('read').then(emails => {
-                this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
+                const totalEmails = storageService.load('emails')
+                this.readPercentage = parseInt((emails.length / totalEmails.length) * 100) + "%";
             });
         })
     },
