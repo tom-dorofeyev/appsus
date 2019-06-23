@@ -11,12 +11,10 @@ export default {
     template: `
     <section class="email-app">
         <router-link to="/">Home</router-link> | 
-        <button @click="readStatus">READSTATUS</button>
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
-        <email-status></email-status>
-        <div>{{readPercentage}}</div>
+        <email-status v-bind:status="readStatus"></email-status>
         <section class="list-sidebar-container">
             <side-bar></side-bar>
             <email-list :emails="emails"></email-list>
@@ -30,7 +28,7 @@ export default {
             isNewMailOpen: false,
             filter: null,
             emails: [],
-            readPercentage:55,
+            readPercentage:0,
         }
     },
     created() {
@@ -38,12 +36,19 @@ export default {
             .then(emails => this.emails = emails);
         eventBus.$on(UPDATE_EMAILS, emails=>{
             this.emails = emails
-            this.isNewMailOpen = !this.isNewMailOpen
+            this.isNewMailOpen = false;
         })
     },
     computed: {
         emailsForDisplay() {
             return this.emails;
+        },
+        readStatus() {
+            emailService.getFilteredEmails('read').then(emails => {
+                this.readPercentage = (emails.length/this.emails.length) * 100 + "%";
+                console.log(this.readPercentage)
+                return this.readPercentage
+            }); 
         },
     },
     methods: {
@@ -55,13 +60,6 @@ export default {
         },
         setFolder() {
             emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
-        },
-        readStatus() {
-            emailService.getFilteredEmails('read').then(emails => {
-                this.readPercentage = emails.length/this.emails.length*100+"%";
-                console.log(this.readPercentage,' of Mails in this Inbox are read')
-            });
-            
         },
     },
     components: {

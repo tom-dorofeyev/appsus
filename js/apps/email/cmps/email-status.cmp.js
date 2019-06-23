@@ -1,13 +1,14 @@
 'use strict'
 
 export default {
-    props: ['email'],
+    props: ['status'],
     template: `
-    <section class="">
+    <section>
             <div class="status-bar">
-            <div class="status-loader"></div>
+            <div :style="{width:status}" class="status-loader" >{{status}}</div>
             </div>
     </section>
+
     `,
     data() {
         return {
@@ -17,4 +18,8 @@ export default {
     methods: {
 
     },
+    created(){
+        console.log('from status bar created',this.status);
+        
+    }
 }

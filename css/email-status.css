@@ -7,7 +7,7 @@ height: 1%;
 }
 
 .status-loader{
-    position: relative;
+    /* position: relative; */
     height:24px;
     width:20%;
     background-color: lightblue;
