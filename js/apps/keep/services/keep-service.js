@@ -61,6 +61,13 @@ function query(){
     return notes
 }
 
+function deleteNoteByid(id){
+    const index = getNoteIndex(id)
+    let notes = query()
+    notes.splice(index, 1);
+    storageService.store(NOTES_KEY, notes);
+}
+
 function getNoteIndex(id) {
     let notes = query()
     return notes.findIndex(notes => notes.id === id);
@@ -76,4 +83,5 @@ export default {
     query,
     add,
     getNoteIndex,
+    deleteNoteByid
 }

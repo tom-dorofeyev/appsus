@@ -9,6 +9,7 @@ export default {
     <section v-if="note.text || note.todos || note.link || note.audio || note.image"
             class="note-container"
             @click="startEditing">
+            <button @click.stop="deleteNote">X</button>
         {{note.text}}<br>
         {{note.todos}}<br>
         TYPE: {{note.type}}
@@ -18,7 +19,7 @@ export default {
                 allowfullscreen>
         </iframe>
         <img v-if="note.image" class="note-img" :src="note.image"/>
-        <input v-if="isEdited" v-model="note[note.type]" type="text">
+        <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
         <button v-if="isEdited" @click.stop="saveAndStopEdit">Save</button>
     </section>
     `,
@@ -33,6 +34,8 @@ export default {
     methods:{
         startEditing(){
             this.isEdited = true;
+            // this.$refs.editInput.focus()
+            // console.log(this.$refs.editInput)
         },
         saveAndStopEdit(){
             let noteIndex = keepService.getNoteIndex(this.note.id);
@@ -41,6 +44,10 @@ export default {
             storageService.store('notes', currNotes)
             this.isEdited = false;
         },
+        deleteNote(){
+            keepService.deleteNoteByid(this.note.id);
+            this.note = {}
+        }
     },
 
 }
