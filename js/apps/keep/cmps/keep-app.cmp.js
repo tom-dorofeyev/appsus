@@ -7,6 +7,12 @@ export default {
     <section class="homepage-container">
         <h1> Miss Keep </h1>
         <input @change="sendNote" v-model="newNote.text" placeholder="Note Text" type="text">
+        <select v-model="newNote.type">
+                <option value="text">Text</option>
+                <option value="image">Image</option>
+                <option value="youtube">YouTube</option>
+                <option value="todo">Todo</option>
+              </select>
         <note-list :noteList="notes"></note-list>
     </section>
     `,
@@ -20,7 +26,9 @@ export default {
                 image: '',
                 todos: '',
                 link: '',
+                youtube:'',
                 audio: '',
+                type: '',
             }
 
     }
@@ -44,6 +52,7 @@ export default {
                 todos: '',
                 link: '',
                 audio: '',
+                type: '',
             }
         },
     },

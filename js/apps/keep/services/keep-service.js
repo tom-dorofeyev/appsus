@@ -7,42 +7,48 @@ const NOTES_KEY = 'notes';
 
 let notesDB = 
 [{
-
         id: utilService.makeId(),
         title: 'this is a title1',
         text: 'bluh bluh  puki muki',
         image: '',
         todos:'',
         link:'',
-        audio:''
-        
-    },
-    {
-        id: utilService.makeId(),
-        title: 'this is a title',
-        text: 'bluh bluh ',
-        image: '',
-        todos:'',
-        link:'',
-        audio:''
+        youtube:'',
+        audio:'',
+        type: 'text',
     },
     {
         id: utilService.makeId(),
         title: 'this is a title2',
-        text: 'puki muki',
+        text: 'bluh bluh ',
         image: '',
         todos:'',
         link:'',
-        audio:''
+        youtube:'',
+        audio:'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177828078&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+        type: 'audio',
     },
     {
         id: utilService.makeId(),
         title: 'this is a title3',
-        text: 'bluh bluh  puki muki',
+        text: 'puki muki',
         image: '',
         todos:'',
         link:'',
-        audio:''
+        youtube:'https://www.youtube.com/embed/ftSUchAdVTE',
+        audio:'',
+        type: 'youtube',
+    },
+    {
+        id: utilService.makeId(),
+        title: 'this is a title4',
+        text: 'bluh bluh  puki muki',
+        image: 'https://data.whicdn.com/images/331262485/large.jpg?t=1559857573',
+        todos:'',
+        link:'',
+        youtube:'',
+        audio:'',
+        type: 'image',
     },
 ];
 
@@ -55,6 +61,12 @@ function query(){
     return notes
 }
 
+function getNoteIndex(id) {
+    return query().then(notes => {
+        return notes.findIndex(notes => notes.id === id);
+    })
+}
+
 function add(newNote) {
         notesDB.unshift(newNote)
         storageService.store(NOTES_KEY, notesDB);
@@ -64,4 +76,5 @@ function add(newNote) {
 export default {
     query,
     add,
+    getNoteIndex,
 }
