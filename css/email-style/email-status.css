@@ -2,12 +2,12 @@
 border: 1px solid black;
 text-align: center;
 display: block;
-width: 15%;
+width: 13%;
 height: 24px;
 margin: 0 auto;
 position: absolute;
-left: 0em;
-top: 8em;
+left: 1em;
+top: 21em;
 }
 
 .status-loader{
