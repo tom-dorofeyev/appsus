@@ -22,6 +22,11 @@ export default {
         </ul>
     </section>
     `,
+    data(){
+        return{
+
+        }
+    },
     created(){
         this.emitInbox()
     },

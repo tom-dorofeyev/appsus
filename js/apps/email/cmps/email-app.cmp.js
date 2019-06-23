@@ -5,7 +5,8 @@ import filterBy from './filter-by.cmp.js'
 import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
 import sideBar from './email-sidebar.cmp.js'
-import eventBus, { UPDATE_EMAILS } from '../../../event-bus.js'
+import eventBus, { UPDATE_EMAILS, CURR_TYPE } from '../../../event-bus.js'
+
 
 export default {
     template: `
@@ -37,6 +38,7 @@ export default {
             filter: null,
             emails: [],
             readPercentage: 0,
+            currType: 'inbox',
         }
     },
     created() {
@@ -49,7 +51,8 @@ export default {
                 const totalEmails = storageService.load('emails')
                 this.readPercentage = parseInt((emails.length / totalEmails.length) * 100) + "%";
             });
-        })
+        }),
+        eventBus.$on(CURR_TYPE, type => console.log(type));
     },
     computed: {
         emailsForDisplay() {

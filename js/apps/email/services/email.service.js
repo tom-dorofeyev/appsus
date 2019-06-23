@@ -216,7 +216,7 @@ function moveToTrash(emailId) {
     getEmailIndex(emailId).then(index => {
         let emails = storageService.load(EMAILS_KEY);
         emails[index].type.isTrash = true;
-        updateEmailsDB(emails);
+        updateEmailsDB(emails)
     })
 }
 

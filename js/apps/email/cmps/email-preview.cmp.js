@@ -1,14 +1,14 @@
 'use strict'
 
 import emailService from '../services/email.service.js'
-import eventBus from '../../../event-bus.js'
+import eventBus , {CURR_TYPE} from '../../../event-bus.js'
 
 export default {
     props: ['email'],
     template: `
     <section class="email-preview-container flex"
              :class="{read : isRead, 'not-read' : !isRead}"
-              @click="emitChanges">
+             @click="emitChanges">
         <input class="mark" type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
         <router-link class="preview-link" :to="'email/details/' + email.id">
@@ -27,7 +27,11 @@ export default {
     data() {
         return {
             isRead: this.email.type.isRead,
+            currType: 'inbox',
         }
+    },
+    created(){
+        eventBus.$on(CURR_TYPE, type => this.currType = type);
     },
     methods: {
         updateChecked(ev) {
@@ -35,7 +39,8 @@ export default {
             this.$emit('update-marked', emailId)
         },
         deleteEmail(){
-            emailService.moveToTrash(this.email.id)
+            emailService.moveToTrash(this.email.id);
+            
         },
         markAsUnread(){
             emailService.markAsReadOrUnread(this.email.id, false);
