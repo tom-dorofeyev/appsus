@@ -8,7 +8,7 @@
 @import url('email-compose.css');
 @import url('filterBy.css');
 @import url('side-bar.css');
-
+@import url('notes.css');
 
 .list-sidebar-container{
     display: grid;
