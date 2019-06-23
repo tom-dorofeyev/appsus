@@ -2,13 +2,15 @@
 border: 1px solid black;
 text-align: center;
 display: block;
-width: 30%;
-height: 1%;
+width: 15%;
+height: 24px;
 margin: 0 auto;
+position: absolute;
+left: 0em;
+top: 8em;
 }
 
 .status-loader{
-    /* position: relative; */
     transition: 0.6s;
     height:24px;
     width:20%;
