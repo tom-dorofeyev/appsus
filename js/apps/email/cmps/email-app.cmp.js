@@ -8,11 +8,12 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
     <section class="email-app">
-        <router-link to="/">go Home</router-link> | 
-        <router-link to="/email/details">go to Email details</router-link> |
+        <router-link to="/">Home</router-link> | 
+        <button @click="readStatus">READSTATUS</button>
         <button @click="toggleNewMail">New Mail</button>
         <email-compose v-if="isNewMailOpen"></email-compose>
         <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
+        <email-status ></email-status>
         <email-list :emails="emailsForDisplay"></email-list>
     </section>
     `,
@@ -22,7 +23,8 @@ export default {
         return {
             isNewMailOpen: false,
             filter: null,
-            emails: []
+            emails: [],
+            readPercentage:55,
         }
     },
     created() {
@@ -35,6 +37,9 @@ export default {
     computed: {
         emailsForDisplay() {
             return this.emails;
+        },
+        emailsMarkedRead() {
+            return this.emails;
         }
     },
     methods: {
@@ -46,7 +51,14 @@ export default {
         },
         setFolder() {
             emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
-        }
+        },
+        readStatus() {
+            emailService.getFilteredEmails('read').then(emails => {
+                this.readPercentage = emails.length/3*100+"%";
+                console.log(this.readPercentage)
+            });
+            
+        },
     },
     components: {
         emailList,

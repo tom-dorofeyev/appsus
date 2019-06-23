@@ -1,0 +1,14 @@
+.status-bar{
+border: 1px solid black;
+text-align: center;
+display: block;
+width: 20%;
+height: 1%;
+}
+
+.status-loader{
+    position: relative;
+    height:24px;
+    width:20%;
+    background-color: lightblue;
+}

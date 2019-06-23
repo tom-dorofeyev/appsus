@@ -3,8 +3,10 @@
 export default {
     props: ['email'],
     template: `
-    <section class="email-preview-container flex">
-
+    <section class="">
+            <div class="status-bar">
+            <div class="status-loader"></div>
+            </div>
     </section>
     `,
     data() {
