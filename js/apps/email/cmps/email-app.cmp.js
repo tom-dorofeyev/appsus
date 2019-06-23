@@ -43,6 +43,9 @@ export default {
         eventBus.$on(UPDATE_EMAILS, emails => {
             this.emails = emails
             this.isNewMailOpen = false;
+            emailService.getFilteredEmails('read').then(emails => {
+                this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
+            });
         })
     },
     computed: {
@@ -52,7 +55,6 @@ export default {
         readStatus() {
             emailService.getFilteredEmails('read').then(emails => {
                 this.readPercentage = (emails.length / this.emails.length) * 100 + "%";
-                return this.readPercentage
             });
         },
     },
