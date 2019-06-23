@@ -12,7 +12,7 @@ export default {
         <input class="mark" type="checkbox" :name="email.id" @click="updateChecked">
         <input class="star" type="checkbox" :name="email.id" checked>
         <router-link class="preview-link" :to="'email/details/' + email.id">
-            <div class="preview-text">
+            <div class="preview-text" @click="markAsRead">
                 <div class="from">{{email.from}}</div>
                 <div class="title">{{email.title}}</div>
             </div>
