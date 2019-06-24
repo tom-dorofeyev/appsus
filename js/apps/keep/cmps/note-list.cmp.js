@@ -22,6 +22,9 @@ export default {
             return this.noteList.some(note =>{
                 return note.isPinned
             })
-        }
+        },
+    },
+    methods:{
+        
     }
 }
