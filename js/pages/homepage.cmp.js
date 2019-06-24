@@ -20,10 +20,10 @@ export default {
           <router-link to="/keep"><a class="nav-link js-scroll-trigger">Notes</a></router-link>
           </li>
           <li class="nav-item">
-          <router-link to="/book"><a class="nav-link js-scroll-trigger" href="#signup">Books</a></router-link>
+          <router-link to="/book"><a class="nav-link js-scroll-trigger">Books</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">About</a>
+          <router-link to="/about"><a class="nav-link js-scroll-trigger">About</a></router-link>
           </li>
         </ul>
       </div>

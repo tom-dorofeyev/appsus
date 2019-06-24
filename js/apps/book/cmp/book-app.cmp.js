@@ -3,10 +3,15 @@ import bookFilter from './book-filter.cmp.js'
 import bookList from './book-list.cmp.js'
 import bookDetails from './book-details.cmp.js'
 import { bookService } from '../services/book.service.js'
+import appNav from '../../../pages/app-nav.cmp.js'
 
 export default {
     template: `
         <section class="book-container">
+        <img @click="toggleNav" class="apps-icon" src="img/apps.png">
+        <transition name="fade">
+             <app-nav v-if="isNavOpen"></app-nav>
+        </transition>
             <book-filter @filtered="setFilter"></book-filter>
             <book-list :books="booksToShow" @getBook="BookDetailsToShow"></book-list>
         </section>
@@ -17,6 +22,7 @@ export default {
             books: [],
             selectedBook: {},
             isBookDetails: false,
+            isNavOpen: false,
         }
     },
     created() {
@@ -41,6 +47,9 @@ export default {
             this.isBookDetails = true;
             this.selectedBook = currBook;
         },
+        toggleNav() {
+            this.isNavOpen = !this.isNavOpen
+        },
         setFilter(filter){
             this.filter = filter
         }
@@ -49,5 +58,6 @@ export default {
         bookFilter,
         bookList,
         bookDetails,
+        appNav,
     }
 }

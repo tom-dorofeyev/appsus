@@ -9,7 +9,9 @@ export default {
     template: `
     <section class="notes-container">
     <img @click="toggleNav" class="apps-icon" src="img/apps.png">
-        <app-nav v-if="isNavOpen"></app-nav>
+    <transition name="fade">
+             <app-nav v-if="isNavOpen"></app-nav>
+    </transition>
         <h1 class="notes-header"> Miss Keep </h1>
         <div class="input-container flex">
             <input @change="sendNote" v-if="newNote.type === 'text'"

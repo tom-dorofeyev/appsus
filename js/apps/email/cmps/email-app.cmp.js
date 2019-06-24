@@ -14,7 +14,9 @@ export default {
     template: `
     <section class="email-app">
     <img @click="toggleNav" class="apps-icon" src="img/apps.png">
-        <app-nav v-if="isNavOpen"></app-nav>
+         <transition name="fade">
+             <app-nav v-if="isNavOpen"></app-nav>
+        </transition>
         <header class="main-header flex">
             <router-link class="small-compose-btn" to="/email"> <button @click="toggleNewMail" class="btn btn-primary">Compose Pop</button></router-link>
             <email-compose v-if="isNewMailOpen"></email-compose>
@@ -54,7 +56,7 @@ export default {
                 this.readPercentage = parseInt((emails.length / totalEmails.length) * 100) + "%";
             });
         }),
-        eventBus.$on(CURR_TYPE, type => console.log(type));
+            eventBus.$on(CURR_TYPE, type => console.log(type));
     },
     computed: {
         emailsForDisplay() {
@@ -76,7 +78,7 @@ export default {
         setFolder() {
             emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
         },
-        toggleNav(){
+        toggleNav() {
             this.isNavOpen = !this.isNavOpen
         },
     },
