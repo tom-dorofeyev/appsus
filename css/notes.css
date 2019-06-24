@@ -2,7 +2,8 @@
 .note-container{
     /* display: flex;
     flex-wrap: wrap; */
-    width: auto;
+    /* columns: 100px 3; */
+    height:auto;
     background: lightgreen;
     border: 1px solid black;
     margin: 0 auto;
@@ -11,4 +12,12 @@
 
 .note-img{
     width: 12em;
+}
+
+.note-list-container{
+    columns:100px 3
+}
+
+.not-pinned-container{
+    columns: 100px 3;
 }
