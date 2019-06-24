@@ -17,6 +17,7 @@ export default {
                 <i class="fas fa-font" id="text" @click="selectType"></i>
                 <i class="fab fa-youtube" id="youtube" @click="selectType"></i>
                 <i class="far fa-image" id="image" @click="selectType"></i>
+                <i class="fas fa-list" id="todos" @click="selectType"></i>
 
         <!-- <select v-model="newNote.type">
                 <option value="text">Text</option>

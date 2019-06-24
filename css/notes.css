@@ -3,10 +3,9 @@
     /* display: flex;
     flex-wrap: wrap; */
     /* columns: 100px 3; */
+    margin: 10px 0;
     height:auto;
-    background: lightgreen;
-    border: 1px solid black;
-    margin: 0 auto;
+    background: #c6ccd1;
     cursor: pointer;
 }
 
