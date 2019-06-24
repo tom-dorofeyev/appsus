@@ -1,6 +1,8 @@
 .icon-img{
     width: 2em;
     border-radius: 50%;
+    z-index: 10;
+    float: right;
 }
 
 .cute-nav-container{
