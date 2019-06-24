@@ -7,24 +7,27 @@ export default {
     template: `
     <section class="homepage-container">
         <h1> Miss Keep </h1>
-        <input @change="sendNote" v-if="newNote.type === 'text'"
-                v-model="newNote.text" placeholder="Whats on your mind..." type="text">
-        <input @change="sendNote" v-if="newNote.type === 'image'"
-                v-model="newNote.image" placeholder="Enter Image URL" type="text">
-        <input @change="sendNote" v-if="newNote.type === 'youtube'"
-                v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
+        <div class="input-container flex">
+            <input @change="sendNote" v-if="newNote.type === 'text'"
+                    v-model="newNote.text" placeholder="Whats on your mind..." type="text">
+            <input @change="sendNote" v-if="newNote.type === 'image'"
+                    v-model="newNote.image" placeholder="Enter Image URL" type="text">
+            <input @change="sendNote" v-if="newNote.type === 'youtube'"
+                    v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
+            <input @change="sendNote" v-if="newNote.type === 'todos'"
+                    v-model="newNote.todos" placeholder="Enter comma seperated list..." type="text">
 
-                <i class="fas fa-font" id="text" @click="selectType"></i>
-                <i class="fab fa-youtube" id="youtube" @click="selectType"></i>
-                <i class="far fa-image" id="image" @click="selectType"></i>
-                <i class="fas fa-list" id="todos" @click="selectType"></i>
-
-        <!-- <select v-model="newNote.type">
-                <option value="text">Text</option>
-                <option value="image">Image</option>
-                <option value="youtube">YouTube</option>
-                <option value="todo">Todo</option>
-              </select> -->
+            <div class="type-selection">
+                <i class="fas fa-font" id="text" @click="selectType"
+                :class="{seen: newNote.text, 'opacity-low': !newNote.text}"></i>
+                <i class="fab fa-youtube" id="youtube" @click="selectType"
+                :class="{seen: newNote.youtube, 'opacity-low': !newNote.youtube}"></i>
+                <i class="far fa-image" id="image" @click="selectType"
+                :class="{seen: newNote.image, 'opacity-low': !newNote.image}"></i>
+                <i class="fas fa-list" id="todos" @click="selectType"
+                :class="{seen: newNote.todos, 'opacity-low': !newNote.todos}"></i>
+            </div>
+        </div>
         <note-list :noteList="notes"></note-list>
     </section>
     `,
@@ -71,7 +74,7 @@ export default {
         },
         selectType(ev){
             this.newNote.type = ev.target.id
-        }
+        },
     },
     components: {
         noteList,
