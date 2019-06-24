@@ -8,28 +8,38 @@ export default {
     props:['note'],
     template: `
     <section v-if="note.text || note.todos || note.link || note.image"
-            class="note-container"
-            @click="startEditing">
-            <div class="button-container">
-                <button @click.stop="deleteNote">X</button>
+            class="note-container">
+            <div class="pin-edit-btns">
+                <button @click="startEditing" class="edit-btn">
+                    <i class="far fa-edit"></i>
+                </button>
+                <button v-if="note.isPinned" @click.stop="pinUnpin">
+                    <i class="fas fa-unlink"></i>
+                </button>
                 <button v-if="!note.isPinned" @click.stop="pinUnpin">
                     <i class="fas fa-thumbtack"></i>
                 </button>
             </div>
-            <button v-if="note.isPinned" @click.stop="pinUnpin">
-                <i class="fas fa-unlink"></i>
-            </button>
-        {{note.text}}<br>
-        {{note.todos}}<br>
-        TYPE: {{note.type}}
-        <!-- <iframe  v-if="note.audio" width="260" height="160" scrolling="no" frameborder="no" allow="autoplay" src="note.audio"></iframe> -->
-        <!-- <iframe v-if="note.youtube" width="260" height="160" :src="note.youtube"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe> -->
+        <pre>{{note.text}}</pre>
+
         <img v-if="note.image" class="note-img" :src="note.image"/>
         <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
-        <button v-if="isEdited" @click.stop="saveAndStopEdit">Save</button>
+
+        <div class="type">
+            <i class="fas fa-font" v-if="note.type === 'text'"></i>
+            <i class="fab fa-youtube" v-if="note.type === 'youtube'"></i>
+            <i class="far fa-image" v-if="note.type === 'image'"></i>
+            <i class="fas fa-list" v-if="note.type === 'todos'"></i>
+        </div>
+
+        <div class="edit-tool-container" v-if="isEdited">
+            <button @click.stop="deleteNote">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+                <button @click.stop="saveAndStopEdit">
+                    <i class="far fa-save"></i>
+                </button>
+            </div>
     </section>
     `,
     data(){
