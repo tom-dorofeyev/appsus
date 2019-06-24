@@ -1,7 +1,7 @@
 .homepage-container{
     text-align: center;
-    background-image: url("/img/homepage-bg.jpg");
-    background-position: 53% 71%;
+    background-image: url("https://github.com/tomdor123/appsus/blob/master/img/homepage-bg.jpg?raw=true");
+    background-position: 53% 73%;
     background-repeat: no-repeat;
     height: 100vh;
 }

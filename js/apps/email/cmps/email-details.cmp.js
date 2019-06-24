@@ -22,7 +22,6 @@ export default {
             <router-link to="/email/new">New Mail</router-link>  <br>
             (Not Working)
             <button>Replay</button>
-            <button>Forward</button>
         </section>
         `,
     data() {
