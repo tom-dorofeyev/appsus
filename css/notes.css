@@ -1,3 +1,12 @@
+.notes-container{
+    margin: 0 auto;
+}
+
+.notes-header{
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 .note-container{
     margin: 10px 0;

@@ -7,10 +7,10 @@ import appNav from '../../../pages/app-nav.cmp.js'
 
 export default {
     template: `
-    <section class="homepage-container">
+    <section class="notes-container">
     <img @click="toggleNav" class="apps-icon" src="img/apps.png">
         <app-nav v-if="isNavOpen"></app-nav>
-        <h1> Miss Keep </h1>
+        <h1 class="notes-header"> Miss Keep </h1>
         <div class="input-container flex">
             <input @change="sendNote" v-if="newNote.type === 'text'"
                     v-model="newNote.text" placeholder="Whats on your mind..." type="text">
