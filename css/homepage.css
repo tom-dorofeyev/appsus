@@ -1,3 +1,15 @@
 .homepage-container{
     text-align: center;
+    background-image: url("/img/homepage-bg.jpg");
+    background-position: 53% 71%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.navbar{
+    z-index: 1;
+}
+
+#mainNav *{
+    color: rgba(255, 255, 255, 0.637);
 }
