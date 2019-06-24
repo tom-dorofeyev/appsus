@@ -60,7 +60,7 @@ export default {
     },
     methods:{
         startEditing(){
-            this.isEdited = true;
+            this.isEdited = !this.isEdited;
         },
         saveAndStopEdit(){
             let noteIndex = keepService.getNoteIndex(this.note.id);
