@@ -54,7 +54,7 @@ export default {
     },
     computed:{
         getTodos(){
-                this.todos = keepService.createTodos(this.note.todos);
+                this.todos = keepService.createTodos(this.note.todos, this.note.id);
                 return this.todos
         }
     },

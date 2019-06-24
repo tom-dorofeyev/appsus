@@ -57,14 +57,40 @@ function deleteNoteByid(id){
     storageService.store(NOTES_KEY, notes);
 }
 
-function createTodos(string){
-    let todos = string.split(',');
-    return todos.map(todoStr => {
-        return {
-            text:todoStr,
-            isDone: false,
+function createTodos(todos, id){
+    let currTodos;
+    let notes = query()
+    let noteIndex = getNoteIndex(id);
+    if(todos[0].text){
+        currTodos = todos;
+    } else {
+        let newTodos = todos.split(',');
+        currTodos = newTodos.map(todoStr => {
+            return {
+                id:utilService.makeId(),
+                text:todoStr,
+                isDone: false,
+            }
+        })
+    }
+    notes[noteIndex].todos = currTodos;
+    storageService.store(NOTES_KEY, notes)
+    return currTodos;
+}
+
+function updateTodoStatus(todo){
+    console.log('got to service ', todo)
+    let notes = query();
+    notes.forEach(note => {
+        if(note.todos){
+            note.todos.forEach(currTodo =>{
+                if(currTodo.id === todo.id){
+                    currTodo.isDone = !currTodo.isDone;
+                }
+            })
         }
     })
+    storageService.store(NOTES_KEY, notes);
 }
 
 function pinUnpinNoteById(id){
@@ -92,5 +118,6 @@ export default {
     getNoteIndex,
     deleteNoteByid,
     pinUnpinNoteById,
-    createTodos
+    createTodos,
+    updateTodoStatus
 }

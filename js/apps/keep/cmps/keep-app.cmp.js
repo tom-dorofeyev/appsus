@@ -26,13 +26,13 @@ export default {
                     </transition>
             <div class="type-selection">
                 <i class="fas fa-font" id="text" @click="selectType"
-                :class="{seen: newNote.text, 'opacity-low': !newNote.text}"></i>
+                :class="{seen: newNote.type === 'text', 'opacity-low': !newNote.type === 'text'}"></i>
                 <i class="fab fa-youtube" id="youtube" @click="selectType"
-                :class="{seen: newNote.youtube, 'opacity-low': !newNote.youtube}"></i>
+                :class="{seen: newNote.type === 'youtube', 'opacity-low': !newNote.type === 'youtube'}"></i>
                 <i class="far fa-image" id="image" @click="selectType"
-                :class="{seen: newNote.image, 'opacity-low': !newNote.image}"></i>
+                :class="{seen: newNote.type === 'image', 'opacity-low': !newNote.type === 'image'}"></i>
                 <i class="fas fa-list" id="todos" @click="selectType"
-                :class="{seen: newNote.todos, 'opacity-low': !newNote.todos}"></i>
+                :class="{seen: newNote.type === 'todos', 'opacity-low': !newNote.type === 'todos'}"></i>
             </div>
         </div>
         <note-list :noteList="notes"></note-list>
