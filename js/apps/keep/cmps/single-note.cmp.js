@@ -20,8 +20,8 @@ export default {
                     <i class="fas fa-thumbtack"></i>
                 </button>
             </div>
-        <pre>{{note.text}}</pre>
-
+        <pre v-if="note.type === 'text'">{{note.text}}</pre>
+        <div v-if="note.type === 'todos'">{{todos}}</div>
         <img v-if="note.image" class="note-img" :src="note.image"/>
         <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
 
@@ -45,16 +45,21 @@ export default {
     data(){
         return{
             isEdited: false,
+            todos: [],
         }
     },
     created(){
-        
+
+    },
+    computed:{
+        getTodos(){
+                this.todos = keepService.createTodos(this.note.todos);
+                console.log(this.note.todos)
+        }
     },
     methods:{
         startEditing(){
             this.isEdited = true;
-            // this.$refs.editInput.focus()
-            // console.log(this.$refs.editInput)
         },
         saveAndStopEdit(){
             let noteIndex = keepService.getNoteIndex(this.note.id);

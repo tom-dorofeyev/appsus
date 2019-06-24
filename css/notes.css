@@ -1,19 +1,35 @@
 
 .note-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 10px 0;
     height:auto;
     background: #c6ccd1;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .pin-edit-btns{
     display: flex;
     justify-content: flex-end;
+    padding-right:10px;
+}
+
+.note-container button{
+    border: 0;
+    background-color: inherit;
 }
 
 .input-container input{
     border:none;
     width: 200px;
+}
+
+.note-container .type{
+    align-self: end;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .input-container{
@@ -34,6 +50,7 @@
 
 .note-img{
     width: 60%;
+    align-self: center;
 }
 
 .opacity-low{
@@ -70,4 +87,15 @@
     .note-container{
         width:30vw;
     }
+
+    .note-container button{
+        opacity:.7;
+    }
+
+    .note-container button:hover{
+        opacity: 1;
+        transition: .3s;
+    }
+
+
 }
