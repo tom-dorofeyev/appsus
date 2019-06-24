@@ -3,6 +3,7 @@
 import keepService from '../services/keep-service.js'
 import storageService from '../../../services/storage.service.js'
 import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
+import todosCmp from './todos.cmp.js'
 
 export default {
     props:['note'],
@@ -20,8 +21,8 @@ export default {
                     <i class="fas fa-thumbtack"></i>
                 </button>
             </div>
-        <pre>{{note.text}}</pre>
-
+        <pre v-if="note.type === 'text'">{{note.text}}</pre>
+        <todos-cmp v-if="note.type === 'todos'" :todos="getTodos"></todos-cmp>
         <img v-if="note.image" class="note-img" :src="note.image"/>
         <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
 
@@ -45,16 +46,21 @@ export default {
     data(){
         return{
             isEdited: false,
+            todos: [],
         }
     },
     created(){
-        
+
+    },
+    computed:{
+        getTodos(){
+                this.todos = keepService.createTodos(this.note.todos);
+                return this.todos
+        }
     },
     methods:{
         startEditing(){
-            this.isEdited = true;
-            // this.$refs.editInput.focus()
-            // console.log(this.$refs.editInput)
+            this.isEdited = !this.isEdited;
         },
         saveAndStopEdit(){
             let noteIndex = keepService.getNoteIndex(this.note.id);
@@ -71,6 +77,9 @@ export default {
             keepService.pinUnpinNoteById(this.note.id);
             eventBus.$emit(UPDATE_NOTES, this.note);
         }
+    },
+    components:{
+        todosCmp
     },
 
 }

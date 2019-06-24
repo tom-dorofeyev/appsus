@@ -19,17 +19,6 @@ let notesDB =
     },
     {
         id: utilService.makeId(),
-        title: 'this is a title2',
-        text: 'bluh bluh ',
-        image: '',
-        todos:'',
-        link:'',
-        youtube:'',
-        audio:'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177828078&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
-        type: 'audio',
-    },
-    {
-        id: utilService.makeId(),
         title: 'this is a title3',
         text: 'puki muki',
         image: '',
@@ -68,6 +57,16 @@ function deleteNoteByid(id){
     storageService.store(NOTES_KEY, notes);
 }
 
+function createTodos(string){
+    let todos = string.split(',');
+    return todos.map(todoStr => {
+        return {
+            text:todoStr,
+            isDone: false,
+        }
+    })
+}
+
 function pinUnpinNoteById(id){
     const index = getNoteIndex(id);
     let notes = query();
@@ -92,5 +91,6 @@ export default {
     add,
     getNoteIndex,
     deleteNoteByid,
-    pinUnpinNoteById
+    pinUnpinNoteById,
+    createTodos
 }
