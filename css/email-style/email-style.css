@@ -5,24 +5,35 @@
 @import url('filterBy.css');
 @import url('side-bar.css');
 
-.email-app{
-    height:100vh;
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
 }
 
-.main-header{
+.fade-enter, .fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
+}
+
+.email-app {
+    height: 100vh;
+}
+
+.main-header {
     height: 40px;
     border: 1px solid rgba(87, 83, 83, 0.144);
     border-style: none none solid none;
 }
 
-.list-sidebar-container{
+.list-sidebar-container {
     display: grid;
     grid-template-columns: 15% auto;
     height: 100%;
 }
 
-.main-header button{
-    position:absolute;
+.main-header button {
+    position: absolute;
     border-radius: 10px;
     top: 22.7em;
     left: 1em;

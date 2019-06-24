@@ -3,7 +3,7 @@ import appNav from '../../../pages/app-nav.cmp.js'
 
 export default {
     template: `
-    <section class="homepage-container">
+    <section class="books-container">
     <img @click="toggleNav" class="apps-icon" src="img/apps.png">
         <app-nav v-if="isNavOpen"></app-nav>
     <h1> Miss Books </h1>
