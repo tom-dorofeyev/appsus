@@ -4,26 +4,23 @@ import appNav from './app-nav.cmp.js'
 export default {
     template: `
     <section class="homepage-container">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-light fixed-top" id="mainNav">
     <div class="container">
-    <router-link to="/"><a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a></router-link>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+    <img class="landing-logo" src="/img/logo_transparent.png">
+    <router-link to="/"><a class="navbar-brand" href="#page-top">Home</a></router-link>
+      <div class="navbar-links">
+        <ul class="navbar">
           <li class="nav-item">
-          <router-link to="/email"><a class="nav-link js-scroll-trigger">Emails</a></router-link>
+          <router-link to="/email"><a class="nav-link">Emails</a></router-link>
           </li>
           <li class="nav-item">
-          <router-link to="/keep"><a class="nav-link js-scroll-trigger">Notes</a></router-link>
+          <router-link to="/keep"><a class="nav-link">Notes</a></router-link>
           </li>
           <li class="nav-item">
-          <router-link to="/book"><a class="nav-link js-scroll-trigger">Books</a></router-link>
+          <router-link to="/book"><a class="nav-link">Books</a></router-link>
           </li>
           <li class="nav-item">
-          <router-link to="/about"><a class="nav-link js-scroll-trigger">About</a></router-link>
+          <router-link to="/about"><a class="nav-link">About</a></router-link>
           </li>
         </ul>
       </div>
@@ -38,6 +35,14 @@ export default {
     </div>
     </section>
     `,
+    created(){
+      // var bgImg = new Image();
+      // bgImg.onload = function(){
+      //    myDiv.style.backgroundImage = 'url(' + bgImg.src + ')';
+      // };
+      // bgImg.src = 'imageLocation';
+      
+    },
     components: {
         appNav,
     },

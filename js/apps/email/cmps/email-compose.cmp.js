@@ -23,7 +23,7 @@ export default {
                 title: '',
                 from: 'baba@savta.com',
                 to: '',
-                timestamp: new Date(),
+                timestamp: new Date().toUTCString(),
                 text: '',
                 type: {
                     isStar: false,

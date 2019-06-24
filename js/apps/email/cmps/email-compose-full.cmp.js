@@ -12,7 +12,7 @@ export default {
          <transition name="fade">
              <app-nav v-if="isNavOpen"></app-nav>
         </transition>
-        <router-link to="/email">Back to Email app</router-link> |
+        <router-link to="/email"><button @click="toggleNewMail" class="btn btn-dark">⇦</button></router-link>
             <section class="compose-header-full">
                 <h2 class="compose-title-full" >New Message</h2>
             </section>

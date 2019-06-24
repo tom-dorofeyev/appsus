@@ -8,7 +8,14 @@
     height: 100vh;
 }
 
-\
+.landing-logo{
+    position: absolute;
+    left: 0em;
+    top: -8em;
+    width: 300px;
+    z-index: -10;
+}
+
 
 /* .img.ready {
     display: block;
@@ -18,6 +25,11 @@
     z-index: 1;
 }
 
+.nav-link{
+    float: left;
+}
+
 #mainNav *{
     color: rgba(255, 255, 255, 0.637);
+
 }
