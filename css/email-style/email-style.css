@@ -10,13 +10,9 @@
 }
 
 .main-header{
-    height: 70px;
+    height: 40px;
     border: 1px solid rgba(87, 83, 83, 0.144);
     border-style: none none solid none;
-}
-
-.list-container{
-    /* padding-right: 10px; */
 }
 
 .list-sidebar-container{
@@ -26,5 +22,8 @@
 }
 
 .main-header button{
+    position:absolute;
     border-radius: 10px;
+    top: 22.7em;
+    left: 1em;
 }

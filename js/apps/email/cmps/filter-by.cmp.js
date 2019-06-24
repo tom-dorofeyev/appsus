@@ -5,16 +5,16 @@ export default {
     template: `
     <section class="filter-container">
         <div class="search-box">
-            <input type="text" @keyup.enter="listByText" v-model="filterTxt" @input="autoCompleteForDisplay">
-            <ul>
-                <li v-for="listItem in emailList" @click="listByText">{{listItem.title}}</li>
-            </ul>
-        </div>
+            <input class="search-box-input" placeholder="Search Mail" type="text" @keyup.enter="listByText" v-model="filterTxt" @input="autoCompleteForDisplay">
         <select @input="listByOption" class="filter-options">
                 <option v-for="filterWord in filterOptions" :value="filterWord">
                     {{filterWord}}
                 </option>
         </select>
+            <ul class="search-options-list">
+                <li class="search-single-option" v-for="listItem in emailList" @click="listByText">{{listItem.title}}</li>
+            </ul>
+        </div>
     </section>
     `,
     data() {

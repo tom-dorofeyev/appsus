@@ -12,9 +12,7 @@ export default {
     template: `
     <section class="email-app">
         <header class="main-header flex">
-            
-            <router-link to="/"><button class="btn btn-primary">Home</button></router-link>
-            <router-link to="/email"> <button @click="toggleNewMail" class="btn btn-primary">New Mail</button></router-link>
+            <router-link class="small-compose-btn" to="/email"> <button @click="toggleNewMail" class="btn btn-primary">Compose Pop</button></router-link>
             <email-compose v-if="isNewMailOpen"></email-compose>
             <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
 

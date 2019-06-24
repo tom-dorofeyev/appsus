@@ -1,6 +1,5 @@
 .filter ul {
     padding: 0;
-    /* background-color: aquamarine; */
     width: 206px;
     position: relative;
     top: -17px;
@@ -11,24 +10,48 @@
 }
 
 .filter li:hover {
-    cursor: pointer;
+
     background-color: lightgray;
 }
 
 .filter-options {
-    height: 23px;
+    height: 27px;
     display: flex;
     float: right;
-    /* position: absolute;
-    right: 24.5em;
-    top: 0em; */
+    width: 20%;
+}
 
+.search-options-list{
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    float: inline-end;
+    width: inherit;
+    border: 1px solid rgba(100, 97, 97, 0.192);
+}
+
+.search-single-option{
+    text-align: left;
+    border: 1px none rgba(100, 97, 97, 0.192);
+
+}
+.search-single-option:hover{
+    cursor: pointer;
 }
 
 .search-box {
-    margin: 0 auto;
+    position: absolute;
+    width: 80vw ;
+    left: 15vw;
+    top: 0.3em;
+}
+
+.search-box-input{
+    width: 80%;
 }
 
 .filter-container {
-    margin: 0 auto;
+    margin: 1.2em auto;
+    top:2em;
 }
