@@ -18,9 +18,16 @@
     justify-content: space-between;
     margin: 10px 0;
     height:auto;
-    background: #c6ccd1;
+    background-color: #dfe3e6;
     cursor: pointer;
     border-radius: 10px;
+    border: 1px solid #CCC;
+}
+
+.note-container .note-text{
+    text-align: center;
+    max-width:80%;
+    margin: 0 auto;
 }
 
 .edit-tool-container{
@@ -100,7 +107,6 @@
     .pinned-container, .not-pinned-container{
         display:flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
     }
     .note-container{
         width:45vw;

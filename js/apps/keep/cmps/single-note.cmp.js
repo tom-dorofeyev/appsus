@@ -21,7 +21,7 @@ export default {
                     <i class="fas fa-thumbtack"></i>
                 </button>
             </div>
-        <pre v-if="note.type === 'text'">{{note.text}}</pre>
+        <p class="note-text" v-if="note.type === 'text'">{{note.text}}</p>
         <todos-cmp v-if="note.type === 'todos'" :todos="getTodos"></todos-cmp>
         <img v-if="note.image" class="note-img" :src="note.image"/>
         <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">

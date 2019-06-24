@@ -27,8 +27,6 @@ export default {
             <div class="type-selection">
                 <i class="fas fa-font" id="text" @click="selectType"
                 :class="{seen: newNote.type === 'text', 'opacity-low': !newNote.type === 'text'}"></i>
-                <i class="fab fa-youtube" id="youtube" @click="selectType"
-                :class="{seen: newNote.type === 'youtube', 'opacity-low': !newNote.type === 'youtube'}"></i>
                 <i class="far fa-image" id="image" @click="selectType"
                 :class="{seen: newNote.type === 'image', 'opacity-low': !newNote.type === 'image'}"></i>
                 <i class="fas fa-list" id="todos" @click="selectType"
