@@ -4,10 +4,10 @@ export default {
     props: ['noteList'],
     template: `
     <section class="note-list-container flex column">
-        <div class="pinned-container flex">
+        <div class="pinned-container">
             <single-note v-for="currNote in noteList" v-if="currNote.isPinned" :key="currNote.id" :note="currNote"></single-note>
         </div>
-        <div class="not-pinned-container flex">
+        <div class="not-pinned-container">
             <single-note v-for="currNote in noteList" v-if="!currNote.isPinned" :key="currNote.id" :note="currNote"></single-note>
         </div>
     </section>

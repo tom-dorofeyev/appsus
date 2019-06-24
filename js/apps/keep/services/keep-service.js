@@ -81,9 +81,10 @@ function getNoteIndex(id) {
 }
 
 function add(newNote) {
-        notesDB.unshift(newNote)
-        storageService.store(NOTES_KEY, notesDB);
-        return notesDB
+        let notes = query()
+        notes.unshift(newNote)
+        storageService.store(NOTES_KEY, notes);
+        return notes
 }
 
 export default {

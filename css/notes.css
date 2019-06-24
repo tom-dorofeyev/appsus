@@ -2,13 +2,21 @@
 .note-container{
     /* display: flex;
     flex-wrap: wrap; */
-    width: auto;
-    background: lightgreen;
-    border: 1px solid black;
-    margin: 0 auto;
+    /* columns: 100px 3; */
+    margin: 10px 0;
+    height:auto;
+    background: #c6ccd1;
     cursor: pointer;
 }
 
 .note-img{
     width: 12em;
+}
+
+.note-list-container{
+    columns:100px 3
+}
+
+.not-pinned-container{
+    columns: 100px 3;
 }
