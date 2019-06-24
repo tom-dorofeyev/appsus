@@ -3,6 +3,7 @@
 import keepService from '../services/keep-service.js'
 import storageService from '../../../services/storage.service.js'
 import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
+import todosCmp from './todos.cmp.js'
 
 export default {
     props:['note'],
@@ -21,7 +22,7 @@ export default {
                 </button>
             </div>
         <pre v-if="note.type === 'text'">{{note.text}}</pre>
-        <div v-if="note.type === 'todos'">{{todos}}</div>
+        <todos-cmp v-if="note.type === 'todos'" :todos="getTodos"></todos-cmp>
         <img v-if="note.image" class="note-img" :src="note.image"/>
         <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
 
@@ -54,7 +55,7 @@ export default {
     computed:{
         getTodos(){
                 this.todos = keepService.createTodos(this.note.todos);
-                console.log(this.note.todos)
+                return this.todos
         }
     },
     methods:{
@@ -76,6 +77,9 @@ export default {
             keepService.pinUnpinNoteById(this.note.id);
             eventBus.$emit(UPDATE_NOTES, this.note);
         }
+    },
+    components:{
+        todosCmp
     },
 
 }

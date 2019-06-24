@@ -58,8 +58,13 @@ function deleteNoteByid(id){
 }
 
 function createTodos(string){
-    const todos = string.split(',');
-    return todos
+    let todos = string.split(',');
+    return todos.map(todoStr => {
+        return {
+            text:todoStr,
+            isDone: false,
+        }
+    })
 }
 
 function pinUnpinNoteById(id){
