@@ -32,14 +32,14 @@
     margin: 0 auto;
     border: 2px solid black;
     bottom: 0;
-    width: 99vw;
+    width: 100vw;
 }
 
 .compose-header-full{
     background-color: black;
     color: white;
     height: 10vh;
-    width: 99vw;
+    width: 98.5vw;
 }
 
 .compose-title-full{
@@ -47,11 +47,11 @@
 }
 
 .compose-inputs-full{
-    width: 99vw;
+    width: 98.5vw;
 }
 
 .compose-input-text-full{
-    height: 32em;
-    width: 99vw;
+    height:28.2em;
+    width: 98.5vw;
 }
 

@@ -8,6 +8,10 @@
     height: 100vh;
 }
 
+/* .img.ready {
+    display: block;
+  } */
+
 .navbar{
     z-index: 1;
 }

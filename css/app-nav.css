@@ -16,12 +16,14 @@
     padding: 5px;
     position: absolute;
     top: 0.1em;
-    right: 2.3em;
+    right: 2.7em;
     transition: opacity .5s;
 }
 
 .apps-icon{
     position: absolute;
+    background-color: white;
+    z-index: 10;
     padding: 5px;
     top: 0;
     right: 0;
