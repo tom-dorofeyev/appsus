@@ -1,11 +1,15 @@
+'use strict'
 import noteList from './note-list.cmp.js'
 import keepService from '../services/keep-service.js'
 import utilService from '../../../services/utils.service.js'
 import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
+import appNav from '../../../pages/app-nav.cmp.js'
 
 export default {
     template: `
     <section class="homepage-container">
+    <img @click="toggleNav" class="apps-icon" src="img/apps.png">
+        <app-nav v-if="isNavOpen"></app-nav>
         <h1> Miss Keep </h1>
         <div class="input-container flex">
             <input @change="sendNote" v-if="newNote.type === 'text'"
@@ -33,6 +37,7 @@ export default {
     `,
     data() {
         return {
+            isNavOpen: false,
             notes: [],
             newNote: {
                 id: utilService.makeId(),
@@ -60,6 +65,9 @@ export default {
             this.notes = keepService.query()
             this.resetNewNote()
         },
+        toggleNav(){
+            this.isNavOpen = !this.isNavOpen
+        },
         resetNewNote() {
             this.newNote = {
                 id: utilService.makeId(),
@@ -78,5 +86,6 @@ export default {
     },
     components: {
         noteList,
+        appNav,
     }
 }

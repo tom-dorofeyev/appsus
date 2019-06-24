@@ -1,3 +1,4 @@
+'use strict'
 import emailService from '../services/email.service.js'
 import storageService from '../../../services/storage.service.js'
 import emailList from './email-list.cmp.js'
@@ -6,11 +7,14 @@ import emailStatus from './email-status.cmp.js'
 import emailCompose from './email-compose.cmp.js'
 import sideBar from './email-sidebar.cmp.js'
 import eventBus, { UPDATE_EMAILS, CURR_TYPE } from '../../../event-bus.js'
+import appNav from '../../../pages/app-nav.cmp.js'
 
 
 export default {
     template: `
     <section class="email-app">
+    <img @click="toggleNav" class="apps-icon" src="img/apps.png">
+        <app-nav v-if="isNavOpen"></app-nav>
         <header class="main-header flex">
             <router-link class="small-compose-btn" to="/email"> <button @click="toggleNewMail" class="btn btn-primary">Compose Pop</button></router-link>
             <email-compose v-if="isNewMailOpen"></email-compose>
@@ -36,6 +40,7 @@ export default {
             emails: [],
             readPercentage: 0,
             currType: 'inbox',
+            isNavOpen: false,
         }
     },
     created() {
@@ -71,12 +76,16 @@ export default {
         setFolder() {
             emailService.getFilteredEmails(filter).then(emails => this.emails = emails);
         },
+        toggleNav(){
+            this.isNavOpen = !this.isNavOpen
+        },
     },
     components: {
         emailList,
         filterBy,
         emailStatus,
         emailCompose,
-        sideBar
+        sideBar,
+        appNav,
     }
 }

@@ -12,16 +12,12 @@ var app = new Vue({
     },
     template: `
         <div>
-        <img @click="toggleNav" class="apps-icon" src="img/apps.png">
-        <app-nav v-if="isNavOpen"></app-nav>
             <router-view></router-view>
         </div>
     `,
     router: myRouter,
     methods: {
-        toggleNav(){
-            this.isNavOpen = !this.isNavOpen
-        },
+
     },
     data() {
         return {
