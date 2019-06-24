@@ -1,12 +1,14 @@
 .homepage-container{
     text-align: center;
     background-color: black;
-    background-image: url("https://github.com/tomdor123/appsus/blob/master/img/homepage-bg.jpg?raw=true");
-    background-position: 53% 73%;
+    background-image: url("https://github.com/tomdor123/appsus/blob/master/img/homepage-bg-small.jpg?raw=true");
+    background-position: 126% 81%;
     background-repeat: no-repeat;
     opacity: 1;
     height: 100vh;
 }
+
+\
 
 /* .img.ready {
     display: block;

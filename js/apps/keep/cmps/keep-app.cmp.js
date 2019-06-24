@@ -14,6 +14,7 @@ export default {
     </transition>
         <h1 class="notes-header"> Miss Keep </h1>
         <div class="input-container flex">
+        <transition name="fade">
             <input @change="sendNote" v-if="newNote.type === 'text'"
                     v-model="newNote.text" placeholder="Whats on your mind..." type="text">
             <input @change="sendNote" v-if="newNote.type === 'image'"
@@ -22,7 +23,7 @@ export default {
                     v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
             <input @change="sendNote" v-if="newNote.type === 'todos'"
                     v-model="newNote.todos" placeholder="Enter comma seperated list..." type="text">
-
+                    </transition>
             <div class="type-selection">
                 <i class="fas fa-font" id="text" @click="selectType"
                 :class="{seen: newNote.text, 'opacity-low': !newNote.text}"></i>
