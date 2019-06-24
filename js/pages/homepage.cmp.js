@@ -38,6 +38,14 @@ export default {
     </div>
     </section>
     `,
+    created(){
+      // var bgImg = new Image();
+      // bgImg.onload = function(){
+      //    myDiv.style.backgroundImage = 'url(' + bgImg.src + ')';
+      // };
+      // bgImg.src = 'imageLocation';
+      
+    },
     components: {
         appNav,
     },

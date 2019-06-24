@@ -2,7 +2,7 @@
     position: absolute;
     margin: 0 auto;
     border: 2px solid black;
-    right: 2px;
+    right: 4em;
     bottom: 0;
     width: 30em;
 }
@@ -19,12 +19,12 @@
 }
 
 .compose-inputs{
-    width: 99%;
+    width: 100%;
 }
 
 .compose-input-text{
     height: 45vh;
-    width: 99%;
+    width: 100%;
 }
 
 .compose-container-full{

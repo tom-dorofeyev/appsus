@@ -7,12 +7,6 @@ export default {
     template:`
     <section class="side-bar">
         <ul class="flex column">
-            <router-link to="/">
-            <li>
-            <i class="fas fa-home" ></i>
-                Home
-            </li>
-            </router-link>
             <router-link to="/email/new">
             <li @click="emitInbox">
                 <i class="fas fa-plus"></i>

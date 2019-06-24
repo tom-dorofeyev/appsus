@@ -1,9 +1,12 @@
 .status-bar{
 border: 1px solid black;
 text-align: center;
+color: white;
+font-weight: bold;
 display: flex;
-width: 14.7vw;
-height: 24px;
+width: 13vw;
+left:0.3em;
+height: 21px;
 margin: 0 auto;
 position: absolute;
 top: 21em;
@@ -11,7 +14,9 @@ top: 21em;
 
 .status-loader{
     transition: 0.6s;
-    height:22px;
+    text-align: center;
+    vertical-align: 0%;
+    height:19px;
     width:20%;
     background-color: lightblue;
     transition:.6s;
