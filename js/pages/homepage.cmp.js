@@ -7,7 +7,6 @@ export default {
     <nav class="navbar navbar-light fixed-top" id="mainNav">
     <div class="container">
     <img class="landing-logo" src="/img/logo_transparent.png">
-    <router-link to="/"><a class="navbar-brand" href="#page-top">Home</a></router-link>
       <div class="navbar-links">
         <ul class="navbar">
           <li class="nav-item">

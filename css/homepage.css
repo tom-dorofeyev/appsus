@@ -11,7 +11,7 @@
 .landing-logo{
     position: absolute;
     left: 0em;
-    top: -8em;
+    top: -5em;
     width: 300px;
     z-index: -10;
 }
@@ -30,6 +30,7 @@
 }
 
 #mainNav *{
+    position: flex;
     color: rgba(255, 255, 255, 0.637);
-
+    right:0em;
 }

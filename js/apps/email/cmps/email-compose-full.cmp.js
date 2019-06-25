@@ -24,6 +24,7 @@ export default {
         `,
     data() {
         return {
+            isNewMailOpen: false,
             isNavOpen: false,
             newEmail: {
                 id: utilService.makeId(),
@@ -52,6 +53,9 @@ export default {
         emailService.getEmailById(emailId).then(email => this.currentEmail = email);
     },
     methods: {
+        toggleNewMail() {
+            this.isNewMailOpen = !this.isNewMailOpen
+        },
         toggleNav() {
             this.isNavOpen = !this.isNavOpen
         },
