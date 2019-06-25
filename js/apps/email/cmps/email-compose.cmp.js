@@ -12,8 +12,10 @@ export default {
             </section>
             <input class="compose-inputs" v-model="newEmail.to" placeholder="Recipients" type="text">
             <input class="compose-inputs" v-model="newEmail.title"  placeholder="Subject" type="text">
-            <textarea class="compose-input-text" v-model="newEmail.text" placeholder="Body"> </textarea>
-            <router-link to="/email"><button @click="sendMail">Send</button></router-link>
+            <textarea class="compose-input-text" v-model="newEmail.text" placeholder="Body"></textarea>
+            <router-link to="/email">
+                <button @click="sendMail">Send</button>
+            </router-link>
         </section>
         `,
     data() {
@@ -46,7 +48,7 @@ export default {
     methods: {
         sendMail() {
             emailService.add(this.newEmail).then(emails => {
-                    eventBus.$emit('update-emails', emails);
+                eventBus.$emit('update-emails', emails);
             })
         },
     }

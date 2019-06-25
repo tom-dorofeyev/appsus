@@ -1,0 +1,30 @@
+
+.add-book-container{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+
+.add-book-container input{
+    position: absolute;
+    right: 57px;
+}
+
+.add-book-container > button{
+    position: absolute;
+    right: 1px;
+}
+
+.add-book-container .book-list{
+    background-color:white;
+    position: relative;
+    right: -15px;
+    top: 19px;
+    margin: 0;
+    padding: 0;
+}
+
+.book-list .google-book:hover{
+    background-color:lightskyblue;
+    cursor: pointer;
+}

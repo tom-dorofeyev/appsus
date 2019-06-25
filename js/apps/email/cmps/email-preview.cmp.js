@@ -1,7 +1,7 @@
 'use strict'
 
 import emailService from '../services/email.service.js'
-import eventBus , {CURR_TYPE} from '../../../event-bus.js'
+import eventBus, { CURR_TYPE } from '../../../event-bus.js'
 
 export default {
     props: ['email'],
@@ -17,11 +17,11 @@ export default {
                 <div class="title">{{email.title}}</div>
             </div>
         </router-link>
-            <div class="actions flex">
-                <i @click="deleteEmail" class="fas fa-trash-alt"></i>
-                <i class="fas fa-envelope-open-text" @click="markAsUnread" v-if="email.type.isRead"></i>
-                <i class="fas fa-envelope" @click="markAsRead" v-if="!email.type.isRead"></i>
-            </div>
+        <div class="actions flex">
+            <i @click="deleteEmail" class="fas fa-trash-alt"></i>
+            <i class="fas fa-envelope-open-text" @click="markAsUnread" v-if="email.type.isRead"></i>
+            <i class="fas fa-envelope" @click="markAsRead" v-if="!email.type.isRead"></i>
+        </div>
     </section>
     `,
     data() {
@@ -30,26 +30,23 @@ export default {
             currType: 'inbox',
         }
     },
-    created(){
-        eventBus.$on(CURR_TYPE, type => this.currType = type);
-    },
     methods: {
         updateChecked(ev) {
             const emailId = ev.target.name;
             this.$emit('update-marked', emailId)
         },
-        deleteEmail(){
+        deleteEmail() {
             emailService.moveToTrash(this.email.id);
-            
+
         },
-        markAsUnread(){
+        markAsUnread() {
             emailService.markAsReadOrUnread(this.email.id, false);
         },
-        markAsRead(){
+        markAsRead() {
             emailService.markAsReadOrUnread(this.email.id, true);
         },
-        emitChanges(){
-            emailService.query().then(emails=>{
+        emitChanges() {
+            emailService.query().then(emails => {
                 eventBus.$emit('update-emails', emails);
             })
         }

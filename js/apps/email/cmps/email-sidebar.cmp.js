@@ -8,10 +8,10 @@ export default {
     <section class="side-bar">
         <ul class="flex column">
             <router-link to="/email/new">
-            <li @click="emitInbox">
-                <i class="fas fa-plus"></i>
-                Compose
-            </li>
+                <li @click="emitInbox">
+                    <i class="fas fa-plus"></i>
+                    Compose
+                </li>
             </router-link>
             <li @click="emitInbox">
                 <i class="fas fa-inbox"></i>
@@ -28,11 +28,6 @@ export default {
         </ul>
     </section>
     `,
-    data(){
-        return{
-
-        }
-    },
     created(){
         this.emitInbox()
     },

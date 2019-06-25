@@ -1,0 +1,64 @@
+@import url('./book-details.css');
+@import url('./main-header.css');
+@import url('./add-book.css');
+
+body{
+    margin:0;
+}
+
+.book-preview{
+    text-decoration: none;
+    color:black;
+}
+
+.book-image img{
+    height: 150px;
+}
+
+.book-item{
+    list-style-type: none;
+    width:200px;
+    cursor: pointer;
+    background-color:#f9f1f1;
+    margin: 10px;
+    align-items: center;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+.book-item:hover{
+    transition: box-shadow .3s;
+    box-shadow: 2px 1px 20px 4px rgba(0,0,0,0.75);
+}
+
+.book-filter{
+    align-items: center;
+}
+
+.main-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background-color:lightgoldenrodyellow;
+    text-align: center;
+}
+
+.selected{
+    background-color: lightblue;
+    transition: background-color .3s;
+}
+
+/* helpers */
+
+.flex{
+    display:flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}

@@ -2,11 +2,11 @@
 
 import keepService from '../services/keep-service.js'
 import storageService from '../../../services/storage.service.js'
-import eventBus, {UPDATE_NOTES} from '../../../event-bus.js'
+import eventBus, { UPDATE_NOTES } from '../../../event-bus.js'
 import todosCmp from './todos.cmp.js'
 
 export default {
-    props:['note'],
+    props: ['note'],
     template: `
     <section v-if="note.text || note.todos || note.link || note.image"
             class="note-container">
@@ -24,7 +24,7 @@ export default {
         <p class="note-text" v-if="note.type === 'text'">{{note.text}}</p>
         <todos-cmp v-if="note.type === 'todos'" :todos="getTodos"></todos-cmp>
         <img v-if="note.image" class="note-img" :src="note.image"/>
-        <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
+        <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit"/>
 
         <div class="type">
             <i class="fas fa-font" v-if="note.type === 'text'"></i>
@@ -37,48 +37,48 @@ export default {
             <button @click.stop="deleteNote">
                 <i class="fas fa-trash-alt"></i>
             </button>
-                <button @click.stop="saveAndStopEdit">
-                    <i class="far fa-save"></i>
-                </button>
-            </div>
+            <button @click.stop="saveAndStopEdit">
+                <i class="far fa-save"></i>
+            </button>
+        </div>
     </section>
     `,
-    data(){
-        return{
+    data() {
+        return {
             isEdited: false,
             todos: [],
         }
     },
-    created(){
+    created() {
 
     },
-    computed:{
-        getTodos(){
-                this.todos = keepService.createTodos(this.note.todos, this.note.id);
-                return this.todos
+    computed: {
+        getTodos() {
+            this.todos = keepService.createTodos(this.note.todos, this.note.id);
+            return this.todos
         }
     },
-    methods:{
-        startEditing(){
+    methods: {
+        startEditing() {
             this.isEdited = !this.isEdited;
         },
-        saveAndStopEdit(){
+        saveAndStopEdit() {
             let noteIndex = keepService.getNoteIndex(this.note.id);
             let currNotes = storageService.load('notes');
             currNotes[noteIndex] = this.note;
             storageService.store('notes', currNotes)
             this.isEdited = false;
         },
-        deleteNote(){
+        deleteNote() {
             keepService.deleteNoteByid(this.note.id);
             eventBus.$emit(UPDATE_NOTES, this.note);
         },
-        pinUnpin(){
+        pinUnpin() {
             keepService.pinUnpinNoteById(this.note.id);
             eventBus.$emit(UPDATE_NOTES, this.note);
         }
     },
-    components:{
+    components: {
         todosCmp
     },
 
