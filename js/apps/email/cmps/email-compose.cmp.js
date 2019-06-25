@@ -48,7 +48,7 @@ export default {
     methods: {
         sendMail() {
             emailService.add(this.newEmail).then(emails => {
-                    eventBus.$emit('update-emails', emails);
+                eventBus.$emit('update-emails', emails);
             })
         },
     }

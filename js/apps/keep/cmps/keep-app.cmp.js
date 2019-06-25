@@ -8,22 +8,23 @@ import appNav from '../../../pages/app-nav.cmp.js'
 export default {
     template: `
     <section class="notes-container">
-    <img @click="toggleNav" class="apps-icon" src="img/apps.png">
-    <transition name="fade">
-             <app-nav v-if="isNavOpen"></app-nav>
-    </transition>
+        <img @click="toggleNav" class="apps-icon" src="img/apps.png">
+        <transition name="fade">
+                <app-nav v-if="isNavOpen"></app-nav>
+        </transition>
         <h1 class="notes-header"> Miss Keep </h1>
         <div class="input-container flex">
-        <transition name="fade">
-            <input @change="sendNote" v-if="newNote.type === 'text'"
-                    v-model="newNote.text" placeholder="Whats on your mind..." type="text">
-            <input @change="sendNote" v-if="newNote.type === 'image'"
-                    v-model="newNote.image" placeholder="Enter Image URL" type="text">
-            <input @change="sendNote" v-if="newNote.type === 'youtube'"
-                    v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
-            <input @change="sendNote" v-if="newNote.type === 'todos'"
-                    v-model="newNote.todos" placeholder="Enter comma seperated list..." type="text">
-                    </transition>
+            <transition name="fade">
+                <input @change="sendNote" v-if="newNote.type === 'text'"
+                        v-model="newNote.text" placeholder="Whats on your mind..." type="text">
+                <input @change="sendNote" v-if="newNote.type === 'image'"
+                        v-model="newNote.image" placeholder="Enter Image URL" type="text">
+                <input @change="sendNote" v-if="newNote.type === 'youtube'"
+                        v-model="newNote.youtube" placeholder="Enter youtube video URL" type="text">
+                <input @change="sendNote" v-if="newNote.type === 'todos'"
+                        v-model="newNote.todos" placeholder="Enter comma seperated list..." type="text">
+            </transition>
+
             <div class="type-selection">
                 <i class="fas fa-font" id="text" @click="selectType"
                 :class="{seen: newNote.type === 'text', 'opacity-low': !newNote.type === 'text'}"></i>
