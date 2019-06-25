@@ -1,0 +1,78 @@
+
+.book-details .close-details{
+    position: absolute;
+    right:50px;
+    top: 20px;
+}
+
+.book-image{
+	margin-right:20px;
+}
+
+.book-details{
+    background-color:lightblue;
+}
+
+.details-item{
+    margin-bottom:10px;
+}
+
+.details-item span{
+    font-weight: bold;
+}
+
+.review-form{
+	width: 25vw;
+	margin: 0 auto;
+}
+
+
+/* animations */
+
+.slide-down{
+	animation-name: slide-down;	
+	animation-duration: 1s;	
+	animation-timing-function: ease;							
+}
+
+@keyframes slide-down {
+	0% {
+		transform: translateY(-100%);
+	}
+	50%{
+		transform: translateY(8%);
+	}
+	65%{
+		transform: translateY(-4%);
+	}
+	80%{
+		transform: translateY(4%);
+	}
+	95%{
+		transform: translateY(-2%);
+	}			
+	100% {
+		transform: translateY(0%);
+	}		
+}
+
+@-webkit-keyframes slide-down {
+	0% {
+		-webkit-transform: translateY(-100%);
+	}
+	50%{
+		-webkit-transform: translateY(8%);
+	}
+	65%{
+		-webkit-transform: translateY(-4%);
+	}
+	80%{
+		-webkit-transform: translateY(4%);
+	}
+	95%{
+		-webkit-transform: translateY(-2%);
+	}			
+	100% {
+		-webkit-transform: translateY(0%);
+	}	
+}

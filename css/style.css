@@ -6,7 +6,7 @@
 @import url('books.css');
 @import url('homepage.css');
 @import url('css-reset.css');
-
+@import url('./css/book-style.css');
 
 /* helpers */
 
