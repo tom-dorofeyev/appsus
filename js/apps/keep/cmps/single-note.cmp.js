@@ -24,7 +24,7 @@ export default {
         <p class="note-text" v-if="note.type === 'text'">{{note.text}}</p>
         <todos-cmp v-if="note.type === 'todos'" :todos="getTodos"></todos-cmp>
         <img v-if="note.image" class="note-img" :src="note.image"/>
-        <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit">
+        <input v-show="isEdited" ref="editInput" v-model="note[note.type]" type="text" @keyup.enter="saveAndStopEdit"/>
 
         <div class="type">
             <i class="fas fa-font" v-if="note.type === 'text'"></i>

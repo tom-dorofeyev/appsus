@@ -30,9 +30,6 @@ export default {
             currType: 'inbox',
         }
     },
-    created(){
-        eventBus.$on(CURR_TYPE, type => this.currType = type);
-    },
     methods: {
         updateChecked(ev) {
             const emailId = ev.target.name;

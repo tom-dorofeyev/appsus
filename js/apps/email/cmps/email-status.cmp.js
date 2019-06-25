@@ -10,15 +10,4 @@ export default {
     </section>
 
     `,
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    created(){ 
-        
-    }
 }

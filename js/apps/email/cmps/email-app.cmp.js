@@ -14,11 +14,15 @@ export default {
     template: `
     <section class="email-app">
     <img @click="toggleNav" class="apps-icon" src="img/apps.png">
-         <transition name="fade">
+        <transition name="fade">
              <app-nav v-if="isNavOpen"></app-nav>
         </transition>
         <header class="main-header flex">
-            <router-link class="small-compose-btn" to="/email"> <button @click="toggleNewMail" class="btn btn-primary">+</button></router-link>
+            <router-link class="small-compose-btn" to="/email">
+                <button @click="toggleNewMail" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </router-link>
             <email-compose v-if="isNewMailOpen"></email-compose>
             <filter-by :emails="emails" @set-filter="setFilter"></filter-by>
 
